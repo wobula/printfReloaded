@@ -17,16 +17,14 @@ char	*ft_strcat(char *s1, const char *s2)
 	int counter;
 	int counter_2;
 
-	counter = 0;
-	counter_2 = 0;
-	while (s1[counter])
-		counter++;
-	while (s2[counter_2])
+	counter = -1;
+	counter_2 = -1;
+	while (s1[++counter])
+		;
+	while (s2[++counter_2])
 	{
 		s1[counter] = s2[counter_2];
 		counter++;
-		counter_2++;
 	}
-	s1[counter] = '\0';
 	return (s1);
 }

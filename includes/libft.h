@@ -97,7 +97,7 @@ char				*ft_strdup(const char *s1);
 char				*ft_strtrim(char const *s);
 char				*ft_strnew(size_t size);
 char				*ft_strndup(const char *s1, size_t offset);
-char				*ft_strjoin(char *s1, char *s2);
+char				*ft_strjoin(const char *s1, const char *s2);
 char				**ft_strsplit(char const *s, char c);
 //					linked lists
 void				ft_striter(char *s, void (*f)(char *));
