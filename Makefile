@@ -62,6 +62,7 @@ LIBFT = libft/ft_atoi.c \
 	   libft/ft_strnequ.c \
 	   libft/ft_strsub.c \
 	   libft/ft_strjoin.c \
+	   libft/ft_strxjoin.c \
 	   libft/ft_strtrim.c \
 	   libft/ft_strsplit.c \
 	   libft/ft_lstnew.c \
