@@ -14,6 +14,7 @@ NAME = libftprintf.a
 CFLAGS += -Wall -Wextra -Werror
 LIBFT = libft/ft_atoi.c \
 	   libft/ft_bzero.c \
+	   libft/ft_itoa.c \
 	   libft/ft_isalpha.c \
 	   libft/ft_isdigit.c \
 	   libft/ft_isalnum.c \

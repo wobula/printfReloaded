@@ -2,12 +2,11 @@
 
 int	main(void)
 {
-	char *buff1 = "robin";
-	char *buff2 = "schramm";
+	int x;
 	char *ptr;
 
-	ptr = NULL;
-	ptr = ft_strjoin(buff1, buff2);
+	x = 0;
+	ptr = ft_itoa(x);
 	ft_putstr(ptr);
 	return (0);
 }
