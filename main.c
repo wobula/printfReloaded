@@ -3,10 +3,15 @@
 int	main(void)
 {
 	int x;
-	char *ptr;
+	char *ptr = "what is a sup dog?";
+	char **ptr2;
 
-	x = 0;
-	ptr = ft_itoa(x);
-	ft_putstr(ptr);
+	ptr2 = ft_strsplit(ptr, ' ');
+	x = -1;
+	while (ptr2[++x])
+	{
+		ft_putstr(ptr2[x]);
+		ft_putchar('\n');
+	}
 	return (0);
 }
