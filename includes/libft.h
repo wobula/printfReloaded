@@ -60,6 +60,8 @@ void				ft_putnbr_fd(int n, int fd);
 void				ft_putstr_fd(char const *s, int fd);
 void				ft_putendl_fd(char const *s, int fd);
 //					string manipulation
+int 				ft_printf(const char *format, ...);
+
 void				ft_strclr(char *s);
 size_t				ft_strlen(const char *str);
 size_t				ft_strlcat(char *dst, const char *src, size_t size);

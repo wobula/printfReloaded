@@ -72,6 +72,8 @@ LIBFT = libft/ft_atoi.c \
 	   libft/ft_lstiter.c \
 	   libft/ft_lstmap.c \
 
+PRINTF = printf/ft_printf.c \
+
 HDIR =	./includes
 
 %.o: %.c
@@ -86,10 +88,10 @@ EXE = test
 all: $(NAME)
 
 $(NAME):
-	@gcc $(CFLAGS) -c $(LIBFT) $?
+	@gcc $(CFLAGS) -c $(LIBFT) $(PRINTF) $?
 	@ar -rc $(NAME) *.o $?
 	@ranlib $(NAME) $?
-	gcc $(FLAG) -o $(EXE) $(LIBFT) main.c
+	gcc $(FLAG) -o $(EXE) $(LIBFT) $(PRINTF) main.c
 
 clean:
 	$(RM) *.o
