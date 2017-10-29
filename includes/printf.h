@@ -12,6 +12,8 @@
 
 #ifndef PRINTF_H
 # define PRINTF_H
+# include <stdbool.h>
+# include "../includes/libft.h"
 
 typedef struct		s_print
 {
@@ -19,5 +21,21 @@ typedef struct		s_print
 	const char		*format;
 	va_list			arg;
 }					t_print;
+
+typedef struct		s_spec
+{
+	//flags, width, precision, length, specifier
+	bool			left_align;
+	bool			show_sign;
+	bool			prepend_space;
+	bool			prepend_zero;
+	bool			alt_form;
+	int				width;
+	int				precision;
+	char			length[2];
+	char			specifier;
+}					t_spec;
+
+int		gather_flags(t_spec *this, char *format);
 
 #endif

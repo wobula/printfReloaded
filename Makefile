@@ -73,6 +73,7 @@ LIBFT = libft/ft_atoi.c \
 	   libft/ft_lstmap.c \
 
 PRINTF = printf/ft_printf.c \
+		printf/gather_flags.c \
 
 GNL = get_next_line/get_next_line.c \
 

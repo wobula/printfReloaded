@@ -13,19 +13,13 @@
 #include "../includes/libft.h"
 #include "../includes/printf.h"
 
-static int activateFrankenstein(t_print *all, int x)
+static void activateFrankenstein(t_print *all, int x)
 {
-	int ret;
+	t_spec this_percent;
+	t_spec *ptr;
 
-	ret = -1;
-	while (all->format[x + (ret++)] != 's')
-	{
-		ft_putchar(all->format[x + ret]);
-		all->ret++;
-	}
-	all->ret++;
-	ft_putchar(all->format[x + ret]);
-	return (x + ret);
+	ptr = &this_percent;
+	gather_flags(ptr, (char *)all->format + x);
 }
 
 static void noFrank(t_print *all, int x)
@@ -41,7 +35,7 @@ static void	parse(t_print *all)
 	while (all->format[++x])
 	{
 		if (all->format[x] == '%')
-			x = activateFrankenstein(all, x);
+			activateFrankenstein(all, ++x);
 		else
 			noFrank(all, x);
 	}
