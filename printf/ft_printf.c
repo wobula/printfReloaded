@@ -50,12 +50,12 @@ static void	parse(t_print *all)
 	int *p = &x;
 
 	all->ret = 0;
-	while (all->format[++x])
+	while (all->format[++*p])
 	{
-		if (all->format[x] == '%')
+		if (all->format[*p] == '%')
 			activateFrankenstein(all, p);
 		else
-			noFrank(all, x);
+			noFrank(all, *p);
 	}
 }
 
