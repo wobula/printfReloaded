@@ -3,8 +3,10 @@
 int	main(void)
 {
 	int x;
-	char *ptr = "what is a sup dog?";
+	int ret;
+	char *ptr = "|what is a sup dog|";
 
-	ft_printf(ptr);
+	ret = ft_printf("hi %s rob?\n", ptr);
+	ft_putnbr(ret);
 	return (0);
 }
