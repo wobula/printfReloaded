@@ -14,13 +14,10 @@
 
 int	main(void)
 {
-	int x;
-	int ret;
-	char *ptr = "hello world!";
-
-	ret = ft_printf("%-+3.3lld\n", 10);
-	//ret = ft_printf("%- 03.5hhd\n", 99);
-	//ret = ft_printf("%15.10s\n", ptr);
-	ret = ft_printf("%-15.10s\n", ptr);
+	ft_putstr("hi 0\n");
+	ft_printf("%-+3.3lld\n");
+	ft_putstr("hi 1\n");
+	ft_printf("%-15.10s\n");
+	ft_putstr("hi 2\n");
 	return (0);
 }

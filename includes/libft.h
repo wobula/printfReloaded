@@ -21,6 +21,7 @@
 # include <locale.h>
 # include <limits.h>
 # include <stdint.h>
+# include <stdio.h>
 
 # define BUFF_SIZE 32
 

@@ -24,7 +24,6 @@ typedef struct		s_print
 
 typedef struct		s_spec
 {
-	//flags, width, precision, length, specifier
 	bool			left_align;
 	bool			show_sign;
 	bool			prepend_space;

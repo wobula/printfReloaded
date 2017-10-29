@@ -10,7 +10,6 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
 #include "../includes/libft.h"
 #include "../includes/printf.h"
 
@@ -35,26 +34,6 @@ static int	length(t_print *all, char *f)
 		all->length = ft_strdup("z\0");
 	else if (f[c] == 'j' && (c = c + 1))
 		all->length = ft_strdup("j\0");
-	return (c);
-}
-
-static int	precision(t_print *all, char *f)
-{
-	int c;
-	char*ptr;
-
-	c = 1;
-	all->precision = 0;
-	if (f[c] >= '0' && f[c] <= '9')
-	{
-		while (f[c] >= '0' && f[c] <= '9')
-			c++;
-		ptr = ft_strnxdup(f, 1, c - 1);
-		all->precision = ft_atoi(ptr);
-		ft_strdel(&ptr);
-	}
-	if (f[c] == '*' && (c = c + 1))
-		all->precision = va_arg(all->arg, int);
 	return (c);
 }
 
@@ -106,8 +85,24 @@ void	printDebug(char *str, int field)
 	ft_putchar('\n');
 }
 
+static int	precision(t_spec *this, char *format)
+{
+	int x;
+
+	x = 0;
+	if (ft_isdigit(format[x]))
+	{
+		this->precision = ft_atoi(format);
+		while (ft_isdigit(format[++x]))
+			;
+	}
+	return (x);
+}
+
 static int	specifier(t_spec *this, char c)
 {
+	ft_putchar(c);
+	ft_putchar('\n');
 	if ((c == 's' || c == 'd' || c == 'i' || c == 'c' || c == '%' || c == 'u'
 		|| c == 'n' || c == 'o' || c == 'e' || c == 'e' || c == 'x' || c == 'X'
 		|| c == 'p' || c == 'G' || c == 'g' || c == 'S' || c == 'D' || c == 'C'
@@ -121,10 +116,12 @@ int		gather_flags(t_spec *this, char *format)
 	int x;
 
 	x = -1;
-	ft_putstr("inside flags\n");
 	ft_putstr(format);
-	while (!specifier(this, format[++x]))
-		;
+	while (!(specifier(this, format[++x])))
+	{
+		if (format[x] == '.')
+			x += precision(this, format + x + 1);
+	}
 	printDebug("left align: ", this->left_align);
 	printDebug("show sign: ", this->show_sign);
 	printDebug("prepend space: ", this->prepend_space);

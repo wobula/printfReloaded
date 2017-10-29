@@ -11,9 +11,8 @@
 # **************************************************************************** #
 
 NAME = libftprintf.a
-CFLAGS += -Wall -Wextra -Werror
-LIBFT = libft/ft_atoi.c \
-	   libft/ft_bzero.c \
+LIBFT = libft/ft_bzero.c \
+	   libft/ft_atoi.c \
 	   libft/ft_itoa.c \
 	   libft/ft_isalpha.c \
 	   libft/ft_isdigit.c \
@@ -77,12 +76,7 @@ PRINTF = printf/ft_printf.c \
 
 GNL = get_next_line/get_next_line.c \
 
-HDIR =	./includes
-
-%.o: %.c
-	@gcc $(CFLAGS) -I$(HDIR) -c -o $@ $< -g
-
-OBJS =	$(subst .c,.o,$(SRCS))
+SRCS = $(LIBFT) $(GNL) $(PRINTF)
 
 RM = @rm -f
 
@@ -91,10 +85,10 @@ EXE = test
 all: $(NAME)
 
 $(NAME):
-	@gcc $(CFLAGS) -c $(LIBFT) $(PRINTF) $(GNL) $?
-	@ar -rc $(NAME) *.o $?
-	@ranlib $(NAME) $?
-	@gcc $(FLAG) -o $(EXE) $(LIBFT) $(PRINTF) $(GNL) main.c
+	@gcc -Wall -Wextra -Werror -c $(SRCS)
+	@ar rc $(NAME) *.o
+	@ranlib $(NAME)
+	@gcc $(CFLAGS) -o $(EXE) main.c libftprintf.a
 	@echo "\033[33;32mLibft: Ready >:D"
 
 clean:
