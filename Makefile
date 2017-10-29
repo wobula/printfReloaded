@@ -85,7 +85,7 @@ EXE = test
 all: $(NAME)
 
 $(NAME):
-	@gcc -Wall -Wextra -Werror -c $(SRCS)
+	@gcc -Wall -Wextra -Werror -Wno-unused-but-set-variable -c $(SRCS)
 	@ar rc $(NAME) *.o
 	@ranlib $(NAME)
 	@gcc $(CFLAGS) -o $(EXE) main.c libftprintf.a

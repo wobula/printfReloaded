@@ -27,13 +27,11 @@ static void initSpecifier(t_spec *this)
 	this->type = 0;
 }
 */
-void activateFrankenstein(t_print *all, int x)
+void activateFrankenstein(void)
 {
-	//initSpecifier(ptr);
 	//gather_flags(ptr, (char *)all->format + *x);
-	ft_putstr("---");
-	ft_putnbr(x);
-	x += ft_strlen(all->format);
+	printf("sup");
+	//x += ft_strlen(all->format);
 }
 
 static void noFrank(t_print *ptr, int x)
@@ -49,7 +47,7 @@ static void	parse(t_print *ptr)
 	while (ptr->format[++x])
 	{
 		if (ptr->format[x] == '%')
-			activateFrankenstein(ptr, x);
+			activateFrankenstein();
 		else
 			noFrank(ptr, x);
 	}
@@ -61,7 +59,7 @@ int		ft_printf(const char *format, ...)
 	t_print *ptr;
 
 	ptr = &all;
-	ptr->format = format;
+	ptr->format = ft_strdup(format);
 	va_start(ptr->arg, format);
 	parse(ptr);
 	va_end(all.arg);
