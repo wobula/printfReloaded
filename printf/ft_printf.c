@@ -28,7 +28,7 @@ static int activateFrankenstein(t_print *all, int x)
 	return (x + ret);
 }
 
-static void noFrankenstein(t_print *all, int x)
+static void noFrank(t_print *all, int x)
 {
 	ft_putchar(all->format[x]);
 	all->ret++;
@@ -43,7 +43,7 @@ static void	parse(t_print *all)
 		if (all->format[x] == '%')
 			x = activateFrankenstein(all, x);
 		else
-			noFrankenstein(all, x);
+			noFrank(all, x);
 	}
 }
 

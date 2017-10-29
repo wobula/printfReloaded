@@ -14,27 +14,7 @@
 
 int		ft_strnequ(char const *s1, char const *s2, size_t n)
 {
-	size_t	counter;
-	int		equal;
-
-	counter = 0;
-	equal = 1;
-	if (!s1 && !s2)
-		return (1);
-	else if (!s1 || !s2)
-		return (0);
-	while (s1[counter] && n > counter)
-	{
-		if (s1[counter] != s2[counter])
-			equal = 0;
-		counter++;
-	}
-	counter = 0;
-	while (s2[counter] && n > counter)
-	{
-		if (s2[counter] != s1[counter])
-			equal = 0;
-		counter++;
-	}
-	return (equal);
+	if (!s1 || !s2)
+		return ((!s1) == (!s2));
+	return (0 == ft_strncmp(s1, s2, n));
 }

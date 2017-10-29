@@ -18,10 +18,7 @@ void	ft_striteri(char *s, void (*f)(unsigned int, char *))
 
 	if ((!s) || (!f))
 		return ;
-	counter = 0;
-	while (s[counter] != '\0')
-	{
+	counter = -1;
+	while (s[++counter] != '\0')
 		f(counter, &s[counter]);
-		counter++;
-	}
 }

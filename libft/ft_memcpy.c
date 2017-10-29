@@ -20,11 +20,8 @@ void	*ft_memcpy(void *restrict d, const void *restrict s, size_t n)
 
 	dst_c = d;
 	src_c = s;
-	counter = 0;
-	while (counter < n)
-	{
+	counter = -1;
+	while (++counter < n)
 		dst_c[counter] = src_c[counter];
-		counter++;
-	}
 	return (dst_c);
 }

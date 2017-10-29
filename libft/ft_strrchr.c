@@ -19,13 +19,12 @@ char	*ft_strrchr(const char *s, int c)
 	const char		*ptr;
 
 	x = c;
-	counter = 0;
+	counter = -1;
 	ptr = NULL;
-	while (s[counter] != '\0')
+	while (s[++counter] != '\0')
 	{
 		if (s[counter] == x)
 			ptr = &s[counter];
-		counter++;
 	}
 	if (s[counter] == x)
 		ptr = &s[counter];

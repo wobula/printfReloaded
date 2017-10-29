@@ -17,14 +17,11 @@ void	ft_putendl_fd(char const *s, int fd)
 	int				counter;
 	unsigned char	*s_c;
 
-	counter = 0;
-	s_c = ((unsigned char *)s);
 	if ((!s) || (!fd))
 		return ;
-	while (s_c[counter] != '\0')
-	{
+	counter = -1;
+	s_c = ((unsigned char *)s);
+	while (s_c[++counter] != '\0')
 		write(fd, &s_c[counter], 1);
-		counter++;
-	}
 	write(fd, "\n", 1);
 }

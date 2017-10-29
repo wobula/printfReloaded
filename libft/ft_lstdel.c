@@ -28,5 +28,4 @@ void	ft_lstdel(t_list **alst, void (*del)(void *, size_t))
 		lst = nxlst;
 	}
 	*alst = NULL;
-	return ;
 }

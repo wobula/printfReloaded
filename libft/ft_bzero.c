@@ -18,10 +18,7 @@ void	ft_bzero(void *s, size_t n)
 	size_t			counter;
 
 	p = s;
-	counter = 0;
-	while (counter < n)
-	{
+	counter = -1;
+	while (++counter < n)
 		p[counter] = 0;
-		counter++;
-	}
 }

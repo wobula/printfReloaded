@@ -20,15 +20,11 @@ char	*ft_strdup(const char *s1)
 	counter = 0;
 	if (!s1)
 		return (NULL);
-	while (s1[counter] != '\0')
-		counter++;
-	ptr = (char*)ft_memalloc(sizeof(char) * counter + 1);
-	counter = 0;
-	while (s1[counter] != '\0')
-	{
-		ptr[counter] = s1[counter];
-		counter++;
-	}
+	counter = ft_strlen(s1);
+	ptr = (char*)ft_memalloc(sizeof(char) * (counter + 1));
 	ptr[counter] = '\0';
+	counter = -1;
+	while (s1[++counter] != '\0')
+		ptr[counter] = s1[counter];
 	return (ptr);
 }

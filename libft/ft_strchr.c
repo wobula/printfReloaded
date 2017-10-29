@@ -21,15 +21,14 @@ char	*ft_strchr(const char *s, int c)
 
 	x = (char *)s;
 	l = (unsigned char)c;
-	counter = 0;
-	while (x[counter] != '\0')
+	counter = -1;
+	while (x[++counter] != '\0')
 	{
 		if (x[counter] == l)
 		{
 			ptr = &x[counter];
 			return (ptr);
 		}
-		counter++;
 	}
 	if (x[counter] == l)
 	{

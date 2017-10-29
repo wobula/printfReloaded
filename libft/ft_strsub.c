@@ -17,19 +17,18 @@ char	*ft_strsub(char const *s, unsigned int start, size_t len)
 	char	*ptr;
 	int		counter;
 
-	counter = 0;
 	if (!s)
 		return (NULL);
-	ptr = malloc((sizeof(char) * (len)) + 1);
+	ptr = (char *)ft_memalloc(sizeof(char) * (len + 1));
 	if (!ptr)
 		return (NULL);
+	ptr[len] = '\0';
+	counter = -1;
 	while (len > 0)
 	{
-		ptr[counter] = s[start];
+		ptr[++counter] = s[start];
 		start++;
-		counter++;
 		len--;
 	}
-	ptr[counter] = '\0';
 	return (ptr);
 }

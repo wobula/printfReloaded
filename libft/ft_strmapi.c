@@ -19,18 +19,13 @@ char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
 
 	if ((!s) || (!f))
 		return (NULL);
-	counter = 0;
-	while (s[counter] != '\0')
-		counter++;
-	ptr = (char *)malloc((sizeof(char) * counter) + 1);
+	counter = ft_strlen(s);
+	ptr = (char *)malloc(sizeof(char) * (counter + 1));
 	if (!ptr)
 		return (NULL);
 	ptr[counter] = '\0';
-	counter = 0;
-	while (s[counter] != '\0')
-	{
+	counter = -1;
+	while (s[++counter] != '\0')
 		ptr[counter] = f(counter, s[counter]);
-		counter++;
-	}
 	return (ptr);
 }

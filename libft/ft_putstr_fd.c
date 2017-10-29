@@ -18,10 +18,7 @@ void	ft_putstr_fd(char const *s, int fd)
 
 	if ((!s) || (!fd))
 		return ;
-	counter = 0;
-	while (s[counter] != '\0')
-	{
+	counter = -1;
+	while (s[++counter] != '\0')
 		write(fd, &s[counter], 1);
-		counter++;
-	}
 }
