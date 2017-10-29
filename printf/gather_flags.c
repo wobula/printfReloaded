@@ -10,6 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
+#include <stdio.h>
 #include "../includes/libft.h"
 #include "../includes/printf.h"
 
@@ -98,12 +99,19 @@ int		gather_flags(t_spec *this, char *f)
 	return (c);
 }*/
 
+void	printDebug(char *str, int field)
+{
+	ft_putstr(str);
+	ft_putnbr(field);
+	ft_putchar('\n');
+}
+
 static int	specifier(t_spec *this, char c)
 {
 	if ((c == 's' || c == 'd' || c == 'i' || c == 'c' || c == '%' || c == 'u'
 		|| c == 'n' || c == 'o' || c == 'e' || c == 'e' || c == 'x' || c == 'X'
 		|| c == 'p' || c == 'G' || c == 'g' || c == 'S' || c == 'D' || c == 'C'
-		|| c == 'O' || c == 'U') && (this->specifier = c))
+		|| c == 'O' || c == 'U') && (this->type = c))
 		return (1);
 	return (0);
 }
@@ -113,12 +121,22 @@ int		gather_flags(t_spec *this, char *format)
 	int x;
 
 	x = -1;
-	ft_putstr("\ngathering flags: ");
+	ft_putstr("inside flags\n");
+	ft_putstr(format);
 	while (!specifier(this, format[++x]))
-	{
-		ft_putchar(format[x]);
-	}
-	ft_putchar(this->specifier);
+		;
+	printDebug("left align: ", this->left_align);
+	printDebug("show sign: ", this->show_sign);
+	printDebug("prepend space: ", this->prepend_space);
+	printDebug("prepend zero: ", this->prepend_zero);
+	printDebug("alt form: ", this->alt_form);
+	printDebug("width: ", this->width);
+	printDebug("precision: ", this->precision);
+	ft_putstr("length: ");
+	ft_putstr(this->length);
+	ft_putstr("\ntype: ");
+	ft_putchar(this->type);
 	ft_putchar('\n');
+	ft_putstr("outside flags\n\n");
 	return (0);
 }

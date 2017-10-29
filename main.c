@@ -16,9 +16,11 @@ int	main(void)
 {
 	int x;
 	int ret;
-	char *ptr = "|what is a sup dog|";
+	char *ptr = "hello world!";
 
-	ret = ft_printf("hi %s rob?\n", ptr);
-	ft_putnbr(ret);
+	ret = ft_printf("%-+3.3lld\n", 10);
+	//ret = ft_printf("%- 03.5hhd\n", 99);
+	//ret = ft_printf("%15.10s\n", ptr);
+	ret = ft_printf("%-15.10s\n", ptr);
 	return (0);
 }

@@ -33,7 +33,7 @@ typedef struct		s_spec
 	int				width;
 	int				precision;
 	char			length[2];
-	char			specifier;
+	char			type;
 }					t_spec;
 
 int		gather_flags(t_spec *this, char *format);
