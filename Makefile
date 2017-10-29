@@ -74,6 +74,8 @@ LIBFT = libft/ft_atoi.c \
 
 PRINTF = printf/ft_printf.c \
 
+GNL = get_next_line/get_next_line.c \
+
 HDIR =	./includes
 
 %.o: %.c
@@ -88,15 +90,18 @@ EXE = test
 all: $(NAME)
 
 $(NAME):
-	@gcc $(CFLAGS) -c $(LIBFT) $(PRINTF) $?
+	@gcc $(CFLAGS) -c $(LIBFT) $(PRINTF) $(GNL) $?
 	@ar -rc $(NAME) *.o $?
 	@ranlib $(NAME) $?
-	gcc $(FLAG) -o $(EXE) $(LIBFT) $(PRINTF) main.c
+	@gcc $(FLAG) -o $(EXE) $(LIBFT) $(PRINTF) $(GNL) main.c
+	@echo "\033[33;32mLibft: Ready >:D"
 
 clean:
 	$(RM) *.o
+	@echo "\033[33mLibft: cleaned..."
 
 fclean: clean
 	$(RM) $(NAME)
+	@echo "\033[31mLibft: fcleaned..."
 
 re: fclean all

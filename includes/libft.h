@@ -22,6 +22,8 @@
 # include <limits.h>
 # include <stdint.h>
 
+# define BUFF_SIZE 32
+
 typedef struct		s_list
 {
 	void			*content;
@@ -61,6 +63,7 @@ void				ft_putstr_fd(char const *s, int fd);
 void				ft_putendl_fd(char const *s, int fd);
 //					string manipulation
 int 				ft_printf(const char *format, ...);
+int				get_next_line(const int fd, char **line);
 
 void				ft_strclr(char *s);
 size_t				ft_strlen(const char *str);
