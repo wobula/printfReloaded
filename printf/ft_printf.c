@@ -37,10 +37,9 @@ void activate_frankenstein(t_print *ptr, int *xptr)
 
 	this = &test;
 	init_percent(ptr, this);
-	gather_flags(this, (char*)ptr->format, *xptr);
+	gather_flags(this, (char*)ptr->format, xptr);
 	if (this->type == 's' || this->type == 'S')
 		format_strings(ptr, this);
-	*xptr += ft_strlen(ptr->format);
 }
 
 static void no_frank(t_print *ptr, int *x)

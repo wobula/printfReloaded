@@ -97,18 +97,18 @@ static int	specifier(t_spec *this, char c)
 	return (0);
 }
 
-int		gather_flags(t_spec *this, char *format, int x)
+int		gather_flags(t_spec *this, char *format, int *x)
 {
-	while (!(specifier(this, format[++x])))
+	while (!(specifier(this, format[++*x])))
 	{
-		if (ft_isflag(format[x]))
-			x += flags(this, format + x);
-		else if (format[x] == '.')
-			x += precision(this, format + x + 1);
-		else if (ft_isdigit(format[x]))
-			x += width(this, format + x);
-		else if (ft_isalpha(format[x]))
-			x += length(this, format + x);
+		if (ft_isflag(format[*x]))
+			*x += flags(this, format + *x);
+		else if (format[*x] == '.')
+			*x += precision(this, format + *x + 1);
+		else if (ft_isdigit(format[*x]))
+			*x += width(this, format + *x);
+		else if (ft_isalpha(format[*x]))
+			*x += length(this, format + *x);
 	}
 	return (0);
 }

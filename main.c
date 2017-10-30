@@ -25,21 +25,5 @@ int	main(void)
 	printf("my return: %d\n", x);
 	fflush(stdout);
 	ft_putstr("\n~~~~~~~~~~~~~~\n");
-	x = printf("**%20s\n", "what is a sup dog");
-	fflush(stdout);
-	printf("return: %d\n", x);
-	fflush(stdout);
-	x = ft_printf("--%20s\n", "what is a sup dog");
-	printf("my return: %d\n", x);
-	fflush(stdout);
-	ft_putstr("\n~~~~~~~~~~~~~~\n");
-	x = printf("**%.0s\n", "what is a sup dog");
-	fflush(stdout);
-	printf("return: %d\n", x);
-	fflush(stdout);
-	x = ft_printf("--%.0s\n", "what is a sup dog");
-	printf("my return: %d\n", x);
-	fflush(stdout);
-	ft_putstr("\n~~~~~~~~~~~~~~\n");
 	return (0);
 }

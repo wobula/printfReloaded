@@ -49,7 +49,7 @@ typedef struct		s_spec
 	int 			*ret;
 }					t_spec;
 
-int		gather_flags(t_spec *this, char *format, int x);
+int		gather_flags(t_spec *this, char *format, int *x);
 void	format_strings(t_print *ptr, t_spec *this);
 
 #endif
