@@ -56,7 +56,7 @@ static void	parse(t_print *ptr)
 
 	x = -1;
 	xptr = &x;
-	while (ptr->format[++*xptr])
+	while (ptr->format[++*xptr] != '\0')
 	{
 		if (ptr->format[*xptr] == '%')
 			activate_frankenstein(ptr, xptr);
@@ -70,6 +70,7 @@ int		ft_printf(const char *format, ...)
 	t_print all;
 	t_print *ptr;
 
+	all.ret = 0;
 	ptr = &all;
 	ptr->format = ft_strdup(format);
 	va_start(ptr->arg, format);
