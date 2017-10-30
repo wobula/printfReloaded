@@ -14,8 +14,8 @@
 
 int	main(void)
 {
-	ft_printf("%0-+# 3.3hhd\n");
-	ft_putstr("~~~~~~~~~~~~~~\n");
-	ft_printf("%-15.10lls\n");
+	ft_printf("%0-+# 3.3hhd\n", 99);
+	ft_putstr("\n~~~~~~~~~~~~~~\n");
+	ft_printf("%-15.10lls\n", "sup");
 	return (0);
 }

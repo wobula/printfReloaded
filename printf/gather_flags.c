@@ -103,7 +103,7 @@ int		gather_flags(t_spec *this, char *format, int x)
 	while (!(specifier(this, format[++x])))
 	{
 		if (ft_isflag(format[x]))
-			flags(this, format + x);
+			x += flags(this, format + x);
 		else if (format[x] == '.')
 			x += precision(this, format + x + 1);
 		else if (ft_isdigit(format[x]))

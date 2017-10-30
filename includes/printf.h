@@ -22,6 +22,17 @@ typedef struct		s_print
 	va_list			arg;
 }					t_print;
 
+typedef union
+{
+	short			small;
+	int				normal;
+	long			semi;
+	intmax_t		big;
+	uintmax_t		super;
+	char			c;
+	char			*str;
+}					raw;
+
 typedef struct		s_spec
 {
 	bool			left_align;
@@ -33,6 +44,7 @@ typedef struct		s_spec
 	int				precision;
 	char			length[3];
 	char			type;
+	raw				data;
 }					t_spec;
 
 int		gather_flags(t_spec *this, char *format, int x);
