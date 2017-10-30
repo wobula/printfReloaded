@@ -14,10 +14,8 @@
 
 int	main(void)
 {
-	ft_putstr("hi 0\n");
-	ft_printf("%-+3.3lld\n");
-	ft_putstr("hi 1\n");
-	ft_printf("%-15.10s\n");
-	ft_putstr("hi 2\n");
+	ft_printf("%0-+# 3.3hhd\n");
+	ft_putstr("~~~~~~~~~~~~~~\n");
+	ft_printf("%-15.10lls\n");
 	return (0);
 }

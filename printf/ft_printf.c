@@ -12,7 +12,7 @@
 
 #include "../includes/libft.h"
 #include "../includes/printf.h"
-/*
+
 static void initSpecifier(t_spec *this)
 {
 	this->left_align = false;
@@ -22,34 +22,42 @@ static void initSpecifier(t_spec *this)
 	this->alt_form = false;
 	this->width = 0;
 	this->precision = 0;
-	this->length[0] = 0;
-	this->length[1] = 0;
+	this->length[0] = '\0';
+	this->length[1] = '\0';
+	this->length[2] = '\0';
 	this->type = 0;
 }
-*/
-void activateFrankenstein(void)
+
+void activateFrankenstein(t_print *all, int *x)
 {
-	//gather_flags(ptr, (char *)all->format + *x);
-	printf("sup");
-	//x += ft_strlen(all->format);
+	t_spec test;
+	t_spec *ptr;
+
+	ptr = &test;
+	initSpecifier(ptr);
+	gather_flags(ptr, (char*)all->format, *x);
+	x += ft_strlen(all->format);
 }
 
-static void noFrank(t_print *ptr, int x)
+static void noFrank(t_print *ptr, int *x)
 {
-	ft_putchar(ptr->format[x]);
+	ft_putchar(ptr->format[*x]);
 	ptr->ret++;
 }
 
 static void	parse(t_print *ptr)
 {
-	int x = -1;
+	int x;
+	int *xptr;
 
-	while (ptr->format[++x])
+	x = -1;
+	xptr = &x;
+	while (ptr->format[++*xptr])
 	{
-		if (ptr->format[x] == '%')
-			activateFrankenstein();
+		if (ptr->format[*xptr] == '%')
+			activateFrankenstein(ptr, xptr);
 		else
-			noFrank(ptr, x);
+			noFrank(ptr, xptr);
 	}
 }
 

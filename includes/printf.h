@@ -31,10 +31,10 @@ typedef struct		s_spec
 	bool			alt_form;
 	int				width;
 	int				precision;
-	char			length[2];
+	char			length[3];
 	char			type;
 }					t_spec;
 
-int		gather_flags(t_spec *this, char *format);
+int		gather_flags(t_spec *this, char *format, int x);
 
 #endif
