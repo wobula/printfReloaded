@@ -14,8 +14,17 @@
 
 int	main(void)
 {
-	ft_printf("%0-+# 3.3hhd\n", 99);
+	printf("**%-13.3s\n", "what is a sup dog");
+	fflush(stdout);
+	ft_printf("--%-13.3s\n", "what is a sup dog");
 	ft_putstr("\n~~~~~~~~~~~~~~\n");
-	ft_printf("%-15.10lls\n", "sup");
+	printf("**%-20s\n", "what is a sup dog");
+	fflush(stdout);
+	ft_printf("--%-20s\n", "what is a sup dog");
+	ft_putstr("\n~~~~~~~~~~~~~~\n");
+	printf("**%-.0s\n", "what is a sup dog");
+	fflush(stdout);
+	ft_printf("--%-.0s\n", "what is a sup dog");
+	ft_putstr("\n~~~~~~~~~~~~~~\n");
 	return (0);
 }

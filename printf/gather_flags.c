@@ -99,7 +99,6 @@ static int	specifier(t_spec *this, char c)
 
 int		gather_flags(t_spec *this, char *format, int x)
 {
-	printf("gather flags begining: %s\n", format);
 	while (!(specifier(this, format[++x])))
 	{
 		if (ft_isflag(format[x]))
@@ -111,15 +110,5 @@ int		gather_flags(t_spec *this, char *format, int x)
 		else if (ft_isalpha(format[x]))
 			x += length(this, format + x);
 	}
-	printf("' ': %d\n", this->prepend_space);
-	printf("0: %d\n", this->prepend_zero);
-	printf("+ : %d\n", this->show_sign);
-	printf("- : %d\n", this->left_align);
-	printf("# : %d\n", this->alt_form);
-	printf("precision: %d\n", this->precision);
-	printf("width: %d\n", this->width);
-	printf("length: %s\n", this->length);
-	printf("type: %c\n", this->type);
-	fflush(stdout);
 	return (0);
 }
