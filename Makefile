@@ -73,7 +73,8 @@ LIBFT = libft/ft_bzero.c \
 
 PRINTF = printf/ft_printf.c \
 		printf/gather_flags.c \
-		printf/format_strings.c \
+		printf/format_string.c \
+		printf/format_char.c \
 
 GNL = get_next_line/get_next_line.c \
 

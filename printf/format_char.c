@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   format_char                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rschramm <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -10,29 +10,40 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "includes/libft.h"
+#include "../includes/libft.h"
+#include "../includes/printf.h"
 
-int	main(void)
+static void	print_width(t_spec *this)
 {
-	int x;
+	int print;
 
-	x = 0;
-	ft_putstr("~~~~~~~~~~~~~~\n");
-	x = printf("**%13c\n", 'x');
-	fflush(stdout);
-	printf("return: %d\n", x);
-	fflush(stdout);
-	x = ft_printf("--%13c\n", 'x');
-	printf("my return: %d\n", x);
-	fflush(stdout);
-	ft_putstr("\n~~~~~~~~~~~~~~\n");
-	x = printf("**%-13c\n", 'x');
-	fflush(stdout);
-	printf("return: %d\n", x);
-	fflush(stdout);
-	x = ft_printf("--%-13c\n", 'x');
-	printf("my return: %d\n", x);
-	fflush(stdout);
-	ft_putstr("\n~~~~~~~~~~~~~~\n");
-	return (0);
+	print = this->width - this->len;
+	while (print > 0)
+	{
+		ft_putchar(' ');
+		print--;
+		*this->ret = *this->ret + 1;
+	}
+}
+
+static void	print_char(char output, int *ret)
+{
+	ft_putchar(output);
+	*ret = *ret + 1;
+}
+
+void	format_char(t_print *ptr, t_spec *this)
+{
+	this->data.chr = (char)va_arg(ptr->arg, int);
+	this->len = 1;
+	if (this->left_align == true)
+	{
+		print_char(this->data.chr, this->ret);
+		print_width(this);
+	}
+	else
+	{
+		print_width(this);
+		print_char(this->data.chr, this->ret);
+	}
 }

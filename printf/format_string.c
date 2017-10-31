@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   format_strings                                     :+:      :+:    :+:   */
+/*   format_string                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rschramm <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -47,7 +47,7 @@ void	print_precision(t_spec *this)
 	}
 }
 
-void	format_strings(t_print *ptr, t_spec *this)
+void	format_string(t_print *ptr, t_spec *this)
 {
 	this->data.str = va_arg(ptr->arg, char*);
 	this->len = ft_strlen(this->data.str);

@@ -13,7 +13,7 @@
 #include "../includes/libft.h"
 #include "../includes/printf.h"
 
-static void init_percent(t_print *ptr, t_spec *this)
+static void constructor(t_print *ptr, t_spec *this)
 {
 	this->left_align = false;
 	this->show_sign = false;
@@ -36,10 +36,12 @@ void activate_frankenstein(t_print *ptr, int *xptr)
 	t_spec *this;
 
 	this = &test;
-	init_percent(ptr, this);
+	constructor(ptr, this);
 	gather_flags(this, (char*)ptr->format, xptr);
 	if (this->type == 's' || this->type == 'S')
-		format_strings(ptr, this);
+		format_string(ptr, this);
+	else if (this->type == 'c' || this->type == 'C')
+		format_char(ptr, this);
 }
 
 static void no_frank(t_print *ptr, int *x)

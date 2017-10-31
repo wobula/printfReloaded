@@ -50,6 +50,7 @@ typedef struct		s_spec
 }					t_spec;
 
 int		gather_flags(t_spec *this, char *format, int *x);
-void	format_strings(t_print *ptr, t_spec *this);
+void	format_string(t_print *ptr, t_spec *this);
+void	format_char(t_print *ptr, t_spec *this);
 
 #endif
