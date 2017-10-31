@@ -42,6 +42,8 @@ void activate_frankenstein(t_print *ptr, int *xptr)
 		format_string(ptr, this);
 	else if (this->type == 'c' || this->type == 'C')
 		format_char(ptr, this);
+	else if (this->type == '%')
+		format_percent(this);
 }
 
 static void no_frank(t_print *ptr, int *x)

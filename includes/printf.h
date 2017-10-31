@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   printf.h                                            :+:      :+:    :+:   */
+/*   printf.h                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rschramm <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -15,6 +15,7 @@
 # include <stdbool.h>
 # include "../includes/libft.h"
 
+//entry level
 typedef struct		s_print
 {
 	int				ret;
@@ -22,6 +23,7 @@ typedef struct		s_print
 	va_list			arg;
 }					t_print;
 
+//raw va_args data
 typedef union
 {
 	short			small;
@@ -33,6 +35,7 @@ typedef union
 	char			*str;
 }					raw;
 
+//specifier level
 typedef struct		s_spec
 {
 	bool			left_align;
@@ -49,8 +52,15 @@ typedef struct		s_spec
 	int 			*ret;
 }					t_spec;
 
+//		Meta-data retrieval
 int		gather_flags(t_spec *this, char *format, int *x);
-void	format_string(t_print *ptr, t_spec *this);
+
+//		Formatters
 void	format_char(t_print *ptr, t_spec *this);
+void	format_percent(t_spec *this);
+void	format_string(t_print *ptr, t_spec *this);
+
+//		Helpers
+char	*ft_ptf_itoabase(uintmax_t val, int base);
 
 #endif

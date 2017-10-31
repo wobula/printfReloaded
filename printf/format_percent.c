@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   format_percent                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rschramm <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -10,29 +10,11 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "includes/libft.h"
+#include "../includes/libft.h"
+#include "../includes/printf.h"
 
-int	main(void)
+void	format_percent(t_spec *this)
 {
-	int x;
-
-	x = 0;
-	ft_putstr("~~~~~~~~~~~~~~\n");
-	x = printf("**%%\n");
-	fflush(stdout);
-	printf("return: %d\n", x);
-	fflush(stdout);
-	x = ft_printf("--%%\n");
-	printf("my return: %d\n", x);
-	fflush(stdout);
-	ft_putstr("\n~~~~~~~~~~~~~~\n");
-	x = printf("**%%\n");
-	fflush(stdout);
-	printf("return: %d\n", x);
-	fflush(stdout);
-	x = ft_printf("--%%\n");
-	printf("my return: %d\n", x);
-	fflush(stdout);
-	ft_putstr("\n~~~~~~~~~~~~~~\n");
-	return (0);
+	ft_putchar('%');
+	*this->ret = *this->ret + 1;
 }

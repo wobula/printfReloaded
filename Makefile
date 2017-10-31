@@ -75,6 +75,8 @@ PRINTF = printf/ft_printf.c \
 		printf/gather_flags.c \
 		printf/format_string.c \
 		printf/format_char.c \
+		printf/format_percent.c \
+		printf/ft_ptf_itoabase.c \
 
 GNL = get_next_line/get_next_line.c \
 

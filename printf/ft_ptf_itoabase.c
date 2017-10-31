@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_ptf_itoabase.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rschramm <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -10,29 +10,21 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "includes/libft.h"
+#include "../includes/libft.h"
 
-int	main(void)
+char	*ft_ptf_itoabase(uintmax_t val, int base)
 {
-	int x;
+	static char	buf[32] = "0";
+	int			i;
 
-	x = 0;
-	ft_putstr("~~~~~~~~~~~~~~\n");
-	x = printf("**%%\n");
-	fflush(stdout);
-	printf("return: %d\n", x);
-	fflush(stdout);
-	x = ft_printf("--%%\n");
-	printf("my return: %d\n", x);
-	fflush(stdout);
-	ft_putstr("\n~~~~~~~~~~~~~~\n");
-	x = printf("**%%\n");
-	fflush(stdout);
-	printf("return: %d\n", x);
-	fflush(stdout);
-	x = ft_printf("--%%\n");
-	printf("my return: %d\n", x);
-	fflush(stdout);
-	ft_putstr("\n~~~~~~~~~~~~~~\n");
-	return (0);
+	i = 30;
+	if (val == 0)
+		return (ft_strdup("0"));
+	while (val > 0 && i > 0)
+	{
+		buf[i] = "0123456789abcdef"[val % base];
+		val = val / base;
+		--i;
+	}
+	return (buf + i + 1);
 }
