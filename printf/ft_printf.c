@@ -74,8 +74,8 @@ int		ft_printf(const char *format, ...)
 	t_print *ptr;
 
 	all.ret = 0;
+	all.format = (char*)format;
 	ptr = &all;
-	ptr->format = (char*)format;
 	va_start(ptr->arg, format);
 	parse(ptr);
 	va_end(all.arg);
