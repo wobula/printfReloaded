@@ -19,7 +19,7 @@
 typedef struct		s_print
 {
 	int				ret;
-	const char		*format;
+	char			*format;
 	va_list			arg;
 }					t_print;
 

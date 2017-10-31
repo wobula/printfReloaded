@@ -75,7 +75,7 @@ int		ft_printf(const char *format, ...)
 
 	all.ret = 0;
 	ptr = &all;
-	ptr->format = ft_strdup(format);
+	ptr->format = (char*)format;
 	va_start(ptr->arg, format);
 	parse(ptr);
 	va_end(all.arg);
