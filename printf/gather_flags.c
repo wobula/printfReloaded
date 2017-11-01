@@ -84,6 +84,8 @@ static int	precision(t_spec *this, char *format)
 		while (ft_isdigit(format[++x]))
 			;
 	}
+	else
+		this->precision = 0;
 	return (x);
 }
 

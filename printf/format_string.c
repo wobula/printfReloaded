@@ -13,7 +13,7 @@
 #include "../includes/libft.h"
 #include "../includes/printf.h"
 
-void	print_width(t_spec *this)
+static void	print_width(t_spec *this)
 {
 	int print;
 
@@ -29,7 +29,7 @@ void	print_width(t_spec *this)
 	}
 }
 
-void	print_precision(t_spec *this)
+static void	print_precision(t_spec *this)
 {
 	int print;
 	int x;

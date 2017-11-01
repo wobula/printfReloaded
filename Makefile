@@ -11,6 +11,7 @@
 # **************************************************************************** #
 
 NAME = libftprintf.a
+
 LIBFT = libft/ft_bzero.c \
 	   libft/ft_atoi.c \
 	   libft/ft_itoa.c \
@@ -76,6 +77,9 @@ PRINTF = printf/ft_printf.c \
 		printf/format_string.c \
 		printf/format_char.c \
 		printf/format_percent.c \
+		printf/format_pointer.c \
+		printf/format_octal.c \
+		printf/format_hex.c \
 		printf/ft_ptf_itoabase.c \
 
 GNL = get_next_line/get_next_line.c \

@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_ptf_itoabase.c                                  :+:      :+:    :+:   */
+/*   format_pointer                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rschramm <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -11,23 +11,16 @@
 /* ************************************************************************** */
 
 #include "../includes/libft.h"
+#include "../includes/printf.h"
 
-char	*ft_ptf_itoabase(uintmax_t val, int base, int opt)
+void	format_pointer(t_print *ptr, t_spec *this)
 {
-	static char	buf[32] = "0";
-	int			i;
+	char *print;
 
-	i = 30;
-	if (val == 0)
-		return (ft_strdup("0"));
-	while (val > 0 && i > 0)
-	{
-		if (opt == 0)
-			buf[i] = "0123456789abcdef"[val % base];
-		else
-			buf[i] = "0123456789ABCDEF"[val % base];
-		val = val / base;
-		--i;
-	}
-	return (buf + i + 1);
+	this->data.hex_oct = va_arg(ptr->arg, unsigned long int);
+	print = ft_ptf_itoabase(this->data.hex_oct, 16, 0);
+	ft_putstr("0x");
+	*this->ret = *this->ret + 2;
+	ft_putstr(print);
+	*this->ret = *this->ret + ft_strlen(print);
 }

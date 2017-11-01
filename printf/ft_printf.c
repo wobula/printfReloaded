@@ -30,20 +30,24 @@ static void constructor(t_print *ptr, t_spec *this)
 	this->ret = &ptr->ret;
 }
 
-void activate_frankenstein(t_print *ptr, int *xptr)
+static void	activate_frankenstein(t_print *ptr, int *xptr)
 {
-	t_spec test;
-	t_spec *this;
+	t_spec this;
 
-	this = &test;
-	constructor(ptr, this);
-	gather_flags(this, (char*)ptr->format, xptr);
-	if (this->type == 's' || this->type == 'S')
-		format_string(ptr, this);
-	else if (this->type == 'c' || this->type == 'C')
-		format_char(ptr, this);
-	else if (this->type == '%')
-		format_percent(this);
+	constructor(ptr, &this);
+	gather_flags(&this, (char*)ptr->format, xptr);
+	if (this.type == 's' || this.type == 'S')
+		format_string(ptr, &this);
+	else if (this.type == 'c' || this.type == 'C')
+		format_char(ptr, &this);
+	else if (this.type == '%')
+		format_percent(&this);
+	else if (this.type == 'p')
+		format_pointer(ptr, &this);
+	else if (this.type == 'o')
+		format_octal(ptr, &this);
+	else if (this.type == 'x' || this.type == 'X')
+		format_hex(ptr, &this);
 }
 
 static void no_frank(t_print *ptr, int *x)
@@ -55,29 +59,25 @@ static void no_frank(t_print *ptr, int *x)
 static void	parse(t_print *ptr)
 {
 	int x;
-	int *xptr;
 
 	x = -1;
-	xptr = &x;
-	while (ptr->format[++*xptr] != '\0')
+	while (ptr->format[++x] != '\0')
 	{
-		if (ptr->format[*xptr] == '%')
-			activate_frankenstein(ptr, xptr);
+		if (ptr->format[x] == '%')
+			activate_frankenstein(ptr, &x);
 		else
-			no_frank(ptr, xptr);
+			no_frank(ptr, &x);
 	}
 }
 
-int		ft_printf(const char *format, ...)
+int			ft_printf(const char *format, ...)
 {
 	t_print all;
-	t_print *ptr;
 
 	all.ret = 0;
 	all.format = (char*)format;
-	ptr = &all;
-	va_start(ptr->arg, format);
-	parse(ptr);
+	va_start(all.arg, format);
+	parse(&all);
 	va_end(all.arg);
 	return (all.ret);
 }

@@ -16,41 +16,51 @@
 # include "../includes/libft.h"
 
 //entry level
-typedef struct		s_print
+typedef struct			s_print
 {
-	int				ret;
-	char			*format;
-	va_list			arg;
-}					t_print;
+	int					ret;
+	char				*format;
+	va_list				arg;
+}						t_print;
 
 //raw va_args data
 typedef union
 {
-	short			small;
-	int				normal;
-	long			semi;
-	intmax_t		big;
-	uintmax_t		super;
-	char			chr;
-	char			*str;
-}					raw;
+	short				small;
+	int					normal;
+	long				semi;
+	intmax_t			big;
+	unsigned long int 	hex_oct;
+	uintmax_t			super;
+	char				chr;
+	char				*str;
+}						raw;
 
 //specifier level
-typedef struct		s_spec
+typedef struct			s_spec
 {
-	bool			left_align;
-	bool			show_sign;
-	bool			prepend_space;
-	bool			prepend_zero;
-	bool			alt_form;
-	int				width;
-	int				precision;
-	char			length[3];
-	char			type;
-	raw				data;
-	int 			len;
-	int 			*ret;
-}					t_spec;
+	bool				left_align;
+	bool				show_sign;
+	bool				prepend_space;
+	bool				prepend_zero;
+	bool				alt_form;
+	int					width;
+	int					precision;
+	char				length[3];
+	char				type;
+	raw					data;
+	int 				len;
+	int 				*ret;
+}						t_spec;
+
+//formatting level
+typedef struct 			s_format
+{
+	int 				length;
+	int 				spaces;
+	int 				zeroes;
+	char 				*print;
+}						t_format;
 
 //		Meta-data retrieval
 int		gather_flags(t_spec *this, char *format, int *x);
@@ -59,8 +69,11 @@ int		gather_flags(t_spec *this, char *format, int *x);
 void	format_char(t_print *ptr, t_spec *this);
 void	format_percent(t_spec *this);
 void	format_string(t_print *ptr, t_spec *this);
+void	format_pointer(t_print *ptr, t_spec *this);
+void	format_octal(t_print *ptr, t_spec *this);
+void	format_hex(t_print *ptr, t_spec *this);
 
 //		Helpers
-char	*ft_ptf_itoabase(uintmax_t val, int base);
+char	*ft_ptf_itoabase(uintmax_t val, int base, int opt);
 
 #endif
