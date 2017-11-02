@@ -35,9 +35,11 @@ static void	activate_frankenstein(t_print *ptr, int *xptr)
 	t_spec this;
 
 	constructor(ptr, &this);
-	gather_flags(&this, (char*)ptr->format, xptr);
+	gather_flags(&this, ptr->format, xptr);
 	if (this.type == 's' || this.type == 'S')
 		format_string(ptr, &this);
+	else if (this.type == 'd')
+		format_decimal(ptr, &this);
 	else if (this.type == 'c' || this.type == 'C')
 		format_char(ptr, &this);
 	else if (this.type == '%')

@@ -99,7 +99,7 @@ static int	specifier(t_spec *this, char c)
 	return (0);
 }
 
-int		gather_flags(t_spec *this, char *format, int *x)
+int			gather_flags(t_spec *this, char *format, int *x)
 {
 	while (!(specifier(this, format[++*x])))
 	{

@@ -26,40 +26,40 @@ typedef struct			s_print
 //raw va_args data
 typedef union
 {
+	char				chr;
+	char				*str;
 	short				small;
 	int					normal;
 	long				semi;
-	intmax_t			big;
 	unsigned long int 	hex_oct;
+	intmax_t			big;
 	uintmax_t			super;
-	char				chr;
-	char				*str;
 }						raw;
 
 //specifier level
 typedef struct			s_spec
 {
+	bool				alt_form;
 	bool				left_align;
-	bool				show_sign;
 	bool				prepend_space;
 	bool				prepend_zero;
-	bool				alt_form;
-	int					width;
-	int					precision;
+	bool				show_sign;
 	char				length[3];
 	char				type;
-	raw					data;
 	int 				len;
+	int					precision;
+	int					width;
 	int 				*ret;
+	raw					data;
 }						t_spec;
 
 //formatting level
 typedef struct 			s_format
 {
+	char 				*print;
 	int 				length;
 	int 				spaces;
 	int 				zeroes;
-	char 				*print;
 }						t_format;
 
 //		Meta-data retrieval
@@ -69,6 +69,7 @@ int		gather_flags(t_spec *this, char *format, int *x);
 void	format_char(t_print *ptr, t_spec *this);
 void	format_percent(t_spec *this);
 void	format_string(t_print *ptr, t_spec *this);
+void	format_decimal(t_print *ptr, t_spec *this);
 void	format_pointer(t_print *ptr, t_spec *this);
 void	format_octal(t_print *ptr, t_spec *this);
 void	format_hex(t_print *ptr, t_spec *this);
