@@ -25,7 +25,7 @@ static void	print_character(t_spec *this, char c, int times)
 
 static void	constructor(t_spec *this, t_format *form)
 {
-	form->print = ft_ptf_itoabase(this->data.hex_oct, 8, 0);
+	form->print = ft_ptf_itoabase(this->data.super_u, 8, 0);
 	form->length = ft_strlen(form->print);
 	form->zeroes = 0;
 	if (this->alt_form == true && form->print[0] != '0')
@@ -51,7 +51,7 @@ void		format_octal(t_print *ptr, t_spec *this)
 {
 	t_format form;
 
-	this->data.hex_oct = va_arg(ptr->arg, unsigned long int);
+	conversions_u(ptr, this);
 	constructor(this, &form);
 	if (this->left_align)
 	{

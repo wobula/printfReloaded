@@ -17,8 +17,8 @@ void	format_pointer(t_print *ptr, t_spec *this)
 {
 	char *print;
 
-	this->data.hex_oct = va_arg(ptr->arg, unsigned long int);
-	print = ft_ptf_itoabase(this->data.hex_oct, 16, 0);
+	this->data.super_u = va_arg(ptr->arg, unsigned long int);
+	print = ft_ptf_itoabase(this->data.super_u, 16, 0);
 	ft_putstr("0x");
 	*this->ret = *this->ret + 2;
 	ft_putstr(print);

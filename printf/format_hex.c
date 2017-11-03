@@ -26,9 +26,9 @@ static void	print_character(t_spec *this, char print, int times)
 static void	constructor(t_spec *this, t_format *form)
 {
 	if (this->type == 'x')
-		form->print = ft_ptf_itoabase(this->data.big, 16, 0);
+		form->print = ft_ptf_itoabase(this->data.super_u, 16, 0);
 	else
-		form->print = ft_ptf_itoabase(this->data.big, 16, 1);
+		form->print = ft_ptf_itoabase(this->data.super_u, 16, 1);
 	form->length = ft_strlen(form->print);
 	form->zeroes = 0;
 	form->spaces = 0;

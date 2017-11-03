@@ -15,19 +15,19 @@
 int	main(void)
 {
 	int x;
-	intmax_t y;
+	unsigned char y;
 	int z;
 
 	x = 0;
 	y = 99999999999;
 	z = -42;
 	ft_putstr("~~~~~~~~~~~~~~\n");
-	ft_putstr("%-8.5jx\n");
-	x = printf("**%-8.5jd\n", y);
+	ft_putstr("%-8.5hhx\n");
+	x = printf("**%-8.5hhx\n", y);
 	fflush(stdout);
 	printf("return: %d\n", x);
 	fflush(stdout);
-	x = ft_printf("--%-8.5jx\n", y);
+	x = ft_printf("--%-8.5hhx\n", y);
 	printf("my return: %d\n", x);
 	fflush(stdout);
 	ft_putstr("\n~~~~~~~~~~~~~~\n");

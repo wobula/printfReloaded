@@ -16,56 +16,63 @@
 # include "../includes/libft.h"
 
 //entry level
-typedef struct			s_print
+typedef struct				s_print
 {
-	int					ret;
-	char				*format;
-	va_list				arg;
-}						t_print;
+	int						ret;
+	char					*format;
+	va_list					arg;
+}							t_print;
 
 //raw va_args data
 typedef union
 {
-	char				chr;
-	char				*str;
-	short				small;
-	int					normal;
-	long				semi;
-	unsigned long int 	hex_oct;
-	intmax_t			big;
-	uintmax_t			super;
-	void				*ptr;
-}						raw;
+	char					chr;
+	unsigned char 			chr_u;
+	char					*str;
+	short					small;
+	unsigned short 			small_u;
+	int						normal;
+	unsigned int 			normal_u;
+	long int				big;
+	unsigned long int 		big_u;
+	long long int 			mega;
+	unsigned long long int 	mega_u;
+	intmax_t				super;
+	uintmax_t				super_u;
+	size_t					wtf_is_size_t;
+	void					*ptr;
+}							raw;
 
 //specifier level
-typedef struct			s_spec
+typedef struct				s_spec
 {
-	bool				alt_form;
-	bool				left_align;
-	bool				prepend_space;
-	bool				prepend_zero;
-	bool				show_sign;
-	char				length[3];
-	char				type;
-	int 				len;
-	int					precision;
-	int					width;
-	int 				*ret;
-	raw					data;
-}						t_spec;
+	bool					alt_form;
+	bool					left_align;
+	bool					prepend_space;
+	bool					prepend_zero;
+	bool					show_sign;
+	char					length[3];
+	char					type;
+	int 					len;
+	int						precision;
+	int						width;
+	int 					*ret;
+	raw						data;
+}							t_spec;
 
 //formatting level
-typedef struct 			s_format
+typedef struct 				s_format
 {
-	char 				*print;
-	int 				length;
-	int 				spaces;
-	int 				zeroes;
-}						t_format;
+	char 					*print;
+	int 					length;
+	int 					spaces;
+	int 					zeroes;
+}							t_format;
 
 //		Meta-data retrieval
 int		gather_flags(t_spec *this, char *format, int *x);
 void	conversions(t_print *ptr, t_spec *this);
+void	conversions_u(t_print *ptr, t_spec *this);
 
 //		Formatters
 void	format_char(t_print *ptr, t_spec *this);
