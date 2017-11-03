@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   conversions.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rschramm <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -10,26 +10,17 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "includes/libft.h"
+#include "../includes/libft.h"
+#include "../includes/printf.h"
 
-int	main(void)
+void	conversions(t_print *ptr, t_spec *this)
 {
-	int x;
-	intmax_t y;
-	int z;
-
-	x = 0;
-	y = 99999999999;
-	z = -42;
-	ft_putstr("~~~~~~~~~~~~~~\n");
-	ft_putstr("%-8.5jx\n");
-	x = printf("**%-8.5jd\n", y);
-	fflush(stdout);
-	printf("return: %d\n", x);
-	fflush(stdout);
-	x = ft_printf("--%-8.5jx\n", y);
-	printf("my return: %d\n", x);
-	fflush(stdout);
-	ft_putstr("\n~~~~~~~~~~~~~~\n");
-	return (0);
+	ft_putstr(this->length);
+	if (this->length[0] == 'j')
+		this->data.big = va_arg(ptr->arg, uintmax_t);
+	ft_putstr("inside format decimal\n");
+	ft_putchar(this->type);
+	ft_putchar('\n');
+	ft_putnbr(this->data.normal);
+	ft_putchar('\n');
 }

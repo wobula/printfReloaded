@@ -34,6 +34,7 @@ typedef union
 	unsigned long int 	hex_oct;
 	intmax_t			big;
 	uintmax_t			super;
+	void				*ptr;
 }						raw;
 
 //specifier level
@@ -64,6 +65,7 @@ typedef struct 			s_format
 
 //		Meta-data retrieval
 int		gather_flags(t_spec *this, char *format, int *x);
+void	conversions(t_print *ptr, t_spec *this);
 
 //		Formatters
 void	format_char(t_print *ptr, t_spec *this);

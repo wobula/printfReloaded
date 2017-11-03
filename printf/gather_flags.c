@@ -101,7 +101,7 @@ static int	specifier(t_spec *this, char c)
 
 int			gather_flags(t_spec *this, char *format, int *x)
 {
-	while (!(specifier(this, format[++*x])))
+	while (format[++*x] && !(specifier(this, format[*x])))
 	{
 		if (ft_isflag(format[*x]))
 			*x += flags(this, format + *x);

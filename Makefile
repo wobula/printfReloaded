@@ -74,6 +74,7 @@ LIBFT = libft/ft_bzero.c \
 
 PRINTF = printf/ft_printf.c \
 		printf/gather_flags.c \
+		printf/conversions.c \
 		printf/format_string.c \
 		printf/format_char.c \
 		printf/format_decimal.c \

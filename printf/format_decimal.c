@@ -22,3 +22,25 @@ void	format_decimal(t_print *ptr, t_spec *this)
 	ft_putnbr(this->data.normal);
 	ft_putchar('\n');
 }
+/*
+void		format_octal(t_print *ptr, t_spec *this)
+{
+	t_format form;
+
+	this->data.hex_oct = va_arg(ptr->arg, unsigned long int);
+	constructor(this, &form);
+	if (this->left_align)
+	{
+		print_character(this, '0', form.zeroes);
+		ft_putstr(form.print);
+		print_character(this, ' ', form.spaces);
+		*this->ret = *this->ret + form.length;
+	}
+	else
+	{
+		print_character(this, ' ', form.spaces);
+		print_character(this, '0', form.zeroes);
+		ft_putstr(form.print);
+		*this->ret = *this->ret + form.length;
+	}
+}*/
