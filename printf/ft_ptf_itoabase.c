@@ -19,7 +19,7 @@ char	*ft_ptf_itoabase(uintmax_t val, int base, int opt)
 
 	i = 30;
 	if (val == 0)
-		return (ft_strdup("0"));
+		return (ft_strcpy(buf, "0\0"));
 	while (val > 0 && i > 0)
 	{
 		if (opt == 0)
