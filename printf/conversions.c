@@ -15,7 +15,6 @@
 
 void	conversions_u(t_print *ptr, t_spec *this)
 {
-	ft_putstr(this->length);
 	if (this->length[0] == 'h' && this->length[1] == 'h')
 		this->data.chr_u = (unsigned char)va_arg(ptr->arg, int);
 	else if (this->length[0] == 'h')
