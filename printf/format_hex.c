@@ -44,7 +44,7 @@ void	format_hex(t_print *ptr, t_spec *this)
 {
 	t_format form;
 
-	conversions(ptr, this);
+	conversions_u(ptr, this);
 	constructor(this, &form);
 	if (this->left_align == false)
 	{

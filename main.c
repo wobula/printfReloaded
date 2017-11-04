@@ -19,7 +19,7 @@ int	main(void)
 	int z;
 
 	x = 0;
-	y = 99999999999;
+	y = -99999999999;
 	z = -42;
 	ft_putstr("~~~~~~~~~~~~~~\n");
 	ft_putstr("%-8.5hhx\n");
