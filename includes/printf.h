@@ -27,19 +27,9 @@ typedef struct				s_print
 typedef union
 {
 	char					chr;
-	unsigned char 			chr_u;
 	char					*str;
-	short					small;
-	unsigned short 			small_u;
-	int						normal;
-	unsigned int 			normal_u;
-	long int				big;
-	unsigned long int 		big_u;
-	long long int 			mega;
-	unsigned long long int 	mega_u;
 	intmax_t				super;
 	uintmax_t				super_u;
-	size_t					wtf_is_size_t;
 	void					*ptr;
 }							raw;
 
