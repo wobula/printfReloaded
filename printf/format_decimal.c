@@ -13,14 +13,74 @@
 #include "../includes/libft.h"
 #include "../includes/printf.h"
 
+static void get_sign(t_spec *this, t_format *form)
+{
+	if (this->data.super < 0)
+	{
+		form->sign = '-';
+		this->data.super *= -1;
+	}
+	else if (this->show_sign == true)
+	{
+		form->sign = '+';
+		form->length++;
+	}
+}
+
+static void	constructor(t_spec *this, t_format *form)
+{
+	form->sign = 0;
+	get_sign(this, form);
+	form->print = ft_ptf_itoabase((uintmax_t)this->data.super, 10, this->alt_form);
+	form->length = ft_strlen(form->print);
+	form->zeroes = 0;
+	form->spaces = 0;
+	if (this->precision > form->length)
+		form->zeroes += this->precision - form->length;
+	if (form->sign != 0)
+		form->length++;
+	if (this->width > form->length + form->zeroes)
+		form->spaces += this->width - (form->length + form->zeroes);
+}
+
+static void print_character(t_spec *this, char c, int times)
+{
+	while (times > 0)
+	{
+		ft_putchar(c);
+		times--;
+		*this->ret = *this->ret + 1;
+	}
+}
+
+static void print_width(t_spec *this, t_format *form)
+{
+	if (this->prepend_zero == true)
+	{
+		if (form->sign != 0)
+			ft_putchar(form->sign);
+		print_character(this, '0', form->spaces);
+	}
+	else
+		print_character(this, ' ', form->spaces);
+}
+
 void	format_decimal(t_print *ptr, t_spec *this)
 {
-	this->data.normal = va_arg(ptr->arg, int);
-	ft_putstr("inside format decimal\n");
-	ft_putchar(this->type);
-	ft_putchar('\n');
-	ft_putnbr(this->data.normal);
-	ft_putchar('\n');
+	t_format form;
+
+
+	conversions(ptr, this);
+	constructor(this, &form);
+	if (this->left_align == false)
+	{
+		print_width(this, &form);
+		if (form.sign != 0 && this->prepend_zero == false)
+			ft_putchar(form.sign);
+		print_character(this, '0', form.zeroes);
+		ft_putstr(form.print);
+	}
+	*this->ret = *this->ret + form.length;
 }
 /*
 void		format_octal(t_print *ptr, t_spec *this)

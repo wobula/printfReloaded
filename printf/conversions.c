@@ -26,9 +26,9 @@ void	conversions_u(t_print *ptr, t_spec *this)
 	else if (this->length[0] == 'j')
 		this->data.super_u = va_arg(ptr->arg, uintmax_t);
 	else if (this->length[0] == 'z')
-		this->data.wtf_is_size_t = va_arg(ptr->arg, size_t);
+		this->data.super_u = va_arg(ptr->arg, size_t);
 	else
-		this->data.normal_u = va_arg(ptr->arg, unsigned int);
+		this->data.super_u = va_arg(ptr->arg, unsigned int);
 }
 
 void	conversions(t_print *ptr, t_spec *this)

@@ -63,6 +63,7 @@ typedef struct				s_spec
 //formatting level
 typedef struct 				s_format
 {
+	char 					sign;
 	char 					*print;
 	int 					length;
 	int 					spaces;

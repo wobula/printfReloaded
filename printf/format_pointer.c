@@ -18,7 +18,7 @@ void	format_pointer(t_print *ptr, t_spec *this)
 	char *print;
 
 	this->data.super_u = va_arg(ptr->arg, unsigned long int);
-	print = ft_ptf_itoabase(this->data.super_u, 16, 0);
+	print = ft_ptf_itoabase(this->data.super_u, 16, this->alt_form);
 	ft_putstr("0x");
 	*this->ret = *this->ret + 2;
 	ft_putstr(print);

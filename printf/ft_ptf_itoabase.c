@@ -12,7 +12,7 @@
 
 #include "../includes/libft.h"
 
-char	*ft_ptf_itoabase(uintmax_t val, int base, int opt)
+char		*ft_ptf_itoabase(uintmax_t val, int base, int opt)
 {
 	static char	buf[32] = "0";
 	int			i;
