@@ -22,12 +22,12 @@ int	main(void)
 	y = -99;
 	z = -42;
 	ft_putstr("~~~~~~~~~~~~~~\n");
-	ft_putstr("%10.3d\n");
-	x = printf("**%10.3d\n", y);
+	ft_putstr("%10d\n");
+	x = printf("**%10d\n", y);
 	fflush(stdout);
 	printf("return: %d\n", x);
 	fflush(stdout);
-	x = ft_printf("--%10.3d\n", y);
+	x = ft_printf("--%10d\n", y);
 	printf("my return: %d\n", x);
 	fflush(stdout);
 	ft_putstr("\n~~~~~~~~~~~~~~\n");
