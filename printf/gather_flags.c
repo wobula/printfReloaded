@@ -157,13 +157,14 @@ static int	specifier(t_spec *this, char c)
 ** Gather flags is the epicenter for retrieving all our specifier information.
 ** For my basic version of printf, I'm only gathering information on flags, precision
 ** width, length, and the specifier.  Basically, it's just a while loop
-** that looks for a bunch of different characters.  If we find a relevent character,
-** we make a note in our t_spec struct.  If we hit a specifier, we break out of our loop
-** and stop collecting meta-data.  
+** that looks for a bunch of different characters.  For organizational and optimization
+** purposes I've chosen to break up all these character searches into different functions.
+** If we find a relevent character, we make a note in our t_spec struct.  
+** If we hit a specifier, we break out of our loop and stop collecting meta-data.  
 **
-** The next and final stop on this gravy train of wonder 
-** and joy is the dispatch manager: here we go to the proper formatting function and
-** start printing stuff out to the screen--zomg so amazing!!!!!1111oneoneone
+** The next and final stop on this gravy train of wonder and joy is the dispatch manager: 
+** here we go to the proper formatting function and start printing stuff out to the 
+** screen--zomg so amazing!!!!!1111oneoneone
 */
 
 int			gather_flags(t_spec *this, char *format, int *x)
