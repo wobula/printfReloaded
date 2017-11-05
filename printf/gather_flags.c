@@ -20,6 +20,13 @@ static int ft_isflag(char test)
 	return (0);
 }
 
+/*
+** ft_isflag and flags are two functions that do the same thing very
+** similar things.  The first identifies if a character is a flag, 
+** while the second makes a record of the flag in our struct and 
+** increments us to the next character in the string.
+*/
+
 static int flags(t_spec *this, char *format)
 {
 	int x;
@@ -41,6 +48,18 @@ static int flags(t_spec *this, char *format)
 	return (x - 1);
 }
 
+/*
+** Length describes the size of the datatype you are feeding into
+** printf.  If your printf call is 'printf("%jd is hardcore\n", 42);',
+** then printf will think the number 42 is using an intmax_t datatype.
+** Why the hell does this matter?  Because if you want to output
+** really big numbers like, 9999999999999, a plain old int will not
+** work.  Instead, what will happen is when you make your va_args call, 
+** the container will be too small (such as an int), and your output will
+** look like a bunch of bullshit (aka overflow values).  I like bullshit
+** just as much as the next person, but not in my code, please!
+*/
+
 static int length(t_spec *this, char *format)
 {
 	int c;
@@ -61,6 +80,25 @@ static int length(t_spec *this, char *format)
 	return (c - 1);
 }
 
+/*
+** Width describes the *minimum* number of characters printf outputs to
+** the screen.  So, if we have a width of 10 and our string is 'robin'
+** printf will output '     robin' to the screen.  Conversely, if we
+** choose to left align our string, printf will output 'robin     '.
+** This same concept applies to digits.  One other thing: printf always
+** evaluates number/string length first, then precision, and after all
+** this is finished -- then it evaluates width.  Another way of thinking
+** about this is as follows:
+**
+** if (precision > string_length), 
+**     then string_length += precision - string length
+** if (width > string_length)
+**     then pad_value = width - string_length
+**
+** Please note: we are using strcpy and a char stack buffer, NOT strdup,
+** because we don't want to deal with any malloc and/or memory leak shenanigans.
+*/
+
 static int	width(t_spec *this, char *format)
 {
 	int x;
@@ -71,6 +109,17 @@ static int	width(t_spec *this, char *format)
 			;
 	return (x - 1);
 }
+
+/*
+** Precision has two basic forms: strings and numbers.  For strings
+** precision controls the *maximum* number of characters print to the
+** screen (truncating anything beyond that number).  In the case of
+** numbers, precision controls the *minimum* number of characters
+** printing to the screen.  So if we have a precision of 2 and our
+** number is '1', printf will add one extra padding '0' character so
+** that the output is '01'.  This comes in handy if we want to print 
+** out rows of data and we want all those rows to line up.
+*/
 
 static int	precision(t_spec *this, char *format)
 {
@@ -88,6 +137,12 @@ static int	precision(t_spec *this, char *format)
 	return (x);
 }
 
+/*
+** I've got specifiers for lots of different letters; don't let this part
+** intimidate you.  It's just a bunch of letters!  I've scrunched the code
+** together so that I can feel smarter than I really am.  :D
+*/
+
 static int	specifier(t_spec *this, char c)
 {
 	if ((c == 's' || c == 'd' || c == 'i' || c == 'c' || c == '%' || c == 'u'
@@ -97,6 +152,19 @@ static int	specifier(t_spec *this, char c)
 		return (1);
 	return (0);
 }
+
+/*
+** Gather flags is the epicenter for retrieving all our specifier information.
+** For my basic version of printf, I'm only gathering information on flags, precision
+** width, length, and the specifier.  Basically, it's just a while loop
+** that looks for a bunch of different characters.  If we find a relevent character,
+** we make a note in our t_spec struct.  If we hit a specifier, we break out of our loop
+** and stop collecting meta-data.  
+**
+** The next and final stop on this gravy train of wonder 
+** and joy is the dispatch manager: here we go to the proper formatting function and
+** start printing stuff out to the screen--zomg so amazing!!!!!1111oneoneone
+*/
 
 int			gather_flags(t_spec *this, char *format, int *x)
 {

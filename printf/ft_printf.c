@@ -12,6 +12,10 @@
 
 #include "../includes/libft.h"
 
+/*
+** Just a constructor so we don't have any junk in the trunk, I mean struct.
+*/
+
 static void constructor(t_print *ptr, t_spec *this)
 {
 	this->left_align = false;
@@ -28,6 +32,26 @@ static void constructor(t_print *ptr, t_spec *this)
 	this->len = 0;
 	this->ret = &ptr->ret;
 }
+
+/*
+** Welcome to frankenstein!  I like to give my function names personality, 
+** and printf is a monster!
+**
+** This part of the code marks the begining of the huge printf glacier of
+** functionality that is hiding just beneath the surface of what is, pretty
+** much, just a glorified putstring function.  For activate_frankenstein, we call
+** our second struct: t_spec.  Again, we are using stack memory because the
+** malloc function has lots of overhead, is slow, invites memory leaks, and 
+** creates way more programmatic complexity than my feeble brain is capable
+** of remembering.  Tracking down memory leaks with valgrind is no fun.  Instead,
+** I've decided to avoid all malloc calls so that I never have to stay awake at
+** night wondering to myself if my printf is leaking all over my precious programs.
+** 
+** But I digree: activate frankenstein consists of three parts: constructor, gather
+** flags, and format_dispatcher.  A simpler way of saying this is 1) we activate and
+** zero out our struct, 2) gather meta-data, and 3) send off meta-data to the proper
+** formatting function.
+*/
 
 static void	activate_frankenstein(t_print *ptr, int *xptr)
 {
@@ -51,11 +75,29 @@ static void	activate_frankenstein(t_print *ptr, int *xptr)
 		format_hex(ptr, &this);
 }
 
+/*
+** This is our buffer printing function.  We only call write once!
+** Notice how we are still keeping track of our return value.  :)
+*/
+
 static void print_buffer(char *format, int *ret, int start, int x)
 {
 	write(1, format + start, x - start);
 	*ret = *ret + x - start;
 }
+
+/*
+** The parse level of printf is essentially putstring with a single
+** if statement to activate formatting functionality for a '%'.  I've
+** complicated my parse function by also adding a bit of buffering.  This
+** is done to increase speed.  Write calls are slow, so rather than calling
+** write for every single character, we build a buffer, call write once,
+** and print out the buffer in one go.  Each time we reach a % specifier,
+** we print out the buffer.  We also have to clear the buffer at the very end
+** once we've reached the null terminator.  Also, remember: we still have
+** to keep track of how many characters we are printing out, hence the 
+** continual references to ptr->ret.
+*/
 
 static void	parse(t_print *ptr)
 {
@@ -75,6 +117,12 @@ static void	parse(t_print *ptr)
 	}
 	print_buffer(ptr->format, &ptr->ret, start, x);
 }
+
+/*
+** Our first data structure tracks 3 things: va_arg pointer,
+** format pointer, and return value (printf returns the number 
+** of characters printed).
+*/
 
 int			ft_printf(const char *format, ...)
 {
