@@ -11,7 +11,6 @@
 /* ************************************************************************** */
 
 #include "../includes/libft.h"
-#include "../includes/printf.h"
 
 void	format_pointer(t_print *ptr, t_spec *this)
 {

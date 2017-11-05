@@ -11,7 +11,6 @@
 /* ************************************************************************** */
 
 #include "../includes/libft.h"
-#include "../includes/printf.h"
 
 void	format_percent(t_spec *this)
 {

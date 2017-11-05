@@ -11,7 +11,6 @@
 /* ************************************************************************** */
 
 #include "../includes/libft.h"
-#include "../includes/printf.h"
 
 static int ft_isflag(char test)
 {

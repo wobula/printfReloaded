@@ -11,7 +11,6 @@
 /* ************************************************************************** */
 
 #include "../includes/libft.h"
-#include "../includes/printf.h"
 
 void	conversions_u(t_print *ptr, t_spec *this)
 {

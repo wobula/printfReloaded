@@ -11,7 +11,6 @@
 /* ************************************************************************** */
 
 #include "../includes/libft.h"
-#include "../includes/printf.h"
 
 static void constructor(t_print *ptr, t_spec *this)
 {
@@ -61,6 +60,7 @@ static void no_frank(t_print *ptr, int *x)
 static void	parse(t_print *ptr)
 {
 	int x;
+	//int start; use this variable to keep track of the buffer pass into write
 
 	x = -1;
 	while (ptr->format[++x] != '\0')

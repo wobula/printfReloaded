@@ -15,6 +15,8 @@
 # include <stdbool.h>
 # include "../includes/libft.h"
 
+# define NUMBERSET "0123456789abcdef0123456789ABCDEF"
+
 //entry level
 typedef struct				s_print
 {

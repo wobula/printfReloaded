@@ -22,6 +22,7 @@
 # include <limits.h>
 # include <stdint.h>
 # include <stdio.h>
+# include "printf.h"
 
 # define BUFF_SIZE 32
 

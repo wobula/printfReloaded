@@ -17,8 +17,6 @@ void	ft_putstr(char *str)
 	int x;
 
 	x = -1;
-	//if (!str && (write(1, "(null)", 6)))
-	//	return ;
 	while (str[++x] != '\0')
 		ft_putchar(str[x]);
 }

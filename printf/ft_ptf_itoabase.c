@@ -15,7 +15,7 @@
 char		*ft_ptf_itoabase(uintmax_t val, int base, int opt)
 {
 	static char	buf[32] = "0";
-	char		set[32] = "0123456789abcdef0123456789ABCDEF";
+	char		set[32] = NUMBERSET;
 	int			i;
 	int 		o;
 
