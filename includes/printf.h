@@ -70,8 +70,7 @@
 **
 ** 3. Printf is a huge function.  To keep it from becoming too big of a monster, always,
 ** always, always compartmentalize and compress your code.  Doing so makes it easier to
-** read, simpler to plan, and more fun to work with.  Don't let your code control you:
-** always make sure you are in control of your code.
+** read, simpler to plan, and more fun to work with.
 */
 
 //entry level -- return value, format pointer, va_arg list
