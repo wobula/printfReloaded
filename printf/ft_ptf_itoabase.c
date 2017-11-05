@@ -24,6 +24,12 @@
 ** to use the same itoabase for both signed and unsigned integers (I bring
 ** the sign back during the formatting phase of printf).
 **
+** The other thing that is happening in this weird and beautiful
+** function is that we are passing 'opt' in as a mechanism for controlling 
+** upper and lowercase printing functionality.  If opt is 0, we use lowercase, 
+** else we add an offset to the 'o' index value so that we can access the
+** uppercase letters that are at the end of the string.
+**
 ** If you are looking for a mathematical explanation of itobase, go look somewhere
 ** else.  I've been using this function for months and still don't really
 ** understand how that fucking modulo is grabbing the correct number.
