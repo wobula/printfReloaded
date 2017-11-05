@@ -53,7 +53,7 @@
 **
 ** One other tidbit of information about malloc is that it requires a lot of
 ** hidden overhead.  Malloc keeps track of its own memory by creating a linked 
-** list that you have probably never heard of.  And, while the original C-programmers 
+** list that systematizes all that data.  And, while the original C-programmers 
 ** are good, linked lists are, by definition not very fast.  Keep it simple.
 ** Don't introduce complexity where its not needed.  Say no to malloc.
 ** 
