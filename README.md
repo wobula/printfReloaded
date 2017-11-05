@@ -1,7 +1,7 @@
 # printfReloaded
 The OG formatting function re-written
 
-##Intro:
+## Intro:
 
 Since I've been a student at 42 silicon valley, I've observed countless other students complain about the difficulty involved in recoding this classic C function.  The most commoncomplaint about printf is that it's 'tedious' because there is so much damn functionality you have to code for.
 
@@ -15,7 +15,7 @@ Toward that end, this recoding has been guided by three principles:
 2. Stay organized: use structs.
 3. Simplify.  Simplify.  Simplify.
 
-##Explanation:
+## Explanation:
 
 1. Malloc may seem like your friend at first glance: instant memory!  It is not. Malloc is a trap, especially in big functions like printf.  Malloc requires that you keep track of every single byte of data it gives you so that you can free it.  Over the course of hundreds of lines of code and several weeks of coding, many tired programmers forget their own variables--myself included.  This is how memory leaks start.
 
