@@ -28,7 +28,9 @@
 
 void	conversions_u(t_print *ptr, t_spec *this)
 {
-	if (this->length[0] == 'h' && this->length[1] == 'h')
+	if (this->length[0] == '\0')
+		this->data.super_u = va_arg(ptr->arg, unsigned int);
+	else if (this->length[0] == 'h' && this->length[1] == 'h')
 		this->data.super_u = (unsigned char)va_arg(ptr->arg, unsigned int);
 	else if (this->length[0] == 'h')
 		this->data.super_u = (unsigned short)va_arg(ptr->arg, unsigned int);
@@ -40,8 +42,6 @@ void	conversions_u(t_print *ptr, t_spec *this)
 		this->data.super_u = va_arg(ptr->arg, uintmax_t);
 	else if (this->length[0] == 'z')
 		this->data.super_u = va_arg(ptr->arg, size_t);
-	else
-		this->data.super_u = va_arg(ptr->arg, unsigned int);
 }
 
 /*
@@ -62,7 +62,9 @@ void	conversions_u(t_print *ptr, t_spec *this)
 
 void	conversions(t_print *ptr, t_spec *this)
 {
-	if (this->length[0] == 'h' && this->length[1] == 'h')
+	if (this->length[0] == '\0')
+		this->data.super = va_arg(ptr->arg, int);
+	else if (this->length[0] == 'h' && this->length[1] == 'h')
 		this->data.super = (char)va_arg(ptr->arg, int);
 	else if (this->length[0] == 'h')
 		this->data.super = (short int)va_arg(ptr->arg, int);
@@ -74,6 +76,4 @@ void	conversions(t_print *ptr, t_spec *this)
 		this->data.super = va_arg(ptr->arg, intmax_t);
 	else if (this->length[0] == 'z')
 		this->data.super = va_arg(ptr->arg, size_t);
-	else
-		this->data.super = va_arg(ptr->arg, int);
 }
