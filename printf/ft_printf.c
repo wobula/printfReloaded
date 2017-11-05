@@ -106,7 +106,7 @@ static void print_buffer(char *format, int *ret, int start, int x)
 ** is how we pass variables (stack structs) by reference.  If we passed these structs without
 ** the ampersand, the changes to our variables would not reverberate back
 ** outside of the calling function.  In other words, our functions would change
-** the struct, but those changes would not reverberate into the calling function.
+** the struct, but those changes would not reverberate back to the calling function.
 */
 
 static void	parse(t_print *ptr)
