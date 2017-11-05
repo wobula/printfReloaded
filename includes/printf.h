@@ -62,8 +62,10 @@ typedef struct 				s_format
 	int 					zeroes;
 }							t_format;
 
-//		Meta-data retrieval
+//		Meta-data
 int		gather_flags(t_spec *this, char *format, int *x);
+
+//		Conversions
 void	conversions(t_print *ptr, t_spec *this);
 void	conversions_u(t_print *ptr, t_spec *this);
 

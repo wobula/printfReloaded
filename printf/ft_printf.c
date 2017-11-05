@@ -51,25 +51,29 @@ static void	activate_frankenstein(t_print *ptr, int *xptr)
 		format_hex(ptr, &this);
 }
 
-static void no_frank(t_print *ptr, int *x)
+static void print_buffer(char *format, int *ret, int start, int x)
 {
-	ft_putchar(ptr->format[*x]);
-	ptr->ret++;
+	write(1, format + start, x - start);
+	*ret = *ret + x - start;
 }
 
 static void	parse(t_print *ptr)
 {
 	int x;
-	//int start; use this variable to keep track of the buffer pass into write
+	int start;
 
 	x = -1;
+	start = 0;
 	while (ptr->format[++x] != '\0')
 	{
 		if (ptr->format[x] == '%')
+		{
+			print_buffer(ptr->format, &ptr->ret, start, x);
 			activate_frankenstein(ptr, &x);
-		else
-			no_frank(ptr, &x);
+			start = x + 1;
+		}
 	}
+	print_buffer(ptr->format, &ptr->ret, start, x);
 }
 
 int			ft_printf(const char *format, ...)
