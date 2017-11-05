@@ -18,10 +18,10 @@
 ** felt the same way for the entire run through of my first coding of printf.
 ** So wtf is going on with va_args?  How does this process work?  Think of it
 ** like this: va_start allocates memory inside the computer, and it stores all
-** your variable strings and numbers inside of this happy-computer-memory land.
-** Then when you do your va_arg call, va_arg uses your data_type as a means for
+** our variable strings and numbers inside of this happy-computer-memory-land.
+** Then when we do our va_arg call, va_arg uses our data_type as a means for
 ** figuring out where to start and stop reading memory from happy-memory-land.
-** So if you get this part of the function wrong, your printf will print out
+** So if we get this part of the function wrong, our printf will print out
 ** a bunch of bullshit because it is retrieving truncated or incomplete data.
 ** And, as everyone knows, truncated and incomplete data makes pandas sad.  :(
 */
