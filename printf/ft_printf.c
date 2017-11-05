@@ -79,7 +79,9 @@ static void	activate_frankenstein(t_print *ptr, int *xptr)
 
 /*
 ** This is our buffer printing function.  We only call write once!
-** Notice how we are still keeping track of our return value.  :)
+** Notice how we are still keeping track of our return value.  In the
+** context of hundreds of thousands of characters printing to the screen
+** this tiny little change in code will create massive speed optimizations.
 */
 
 static void print_buffer(char *format, int *ret, int start, int x)

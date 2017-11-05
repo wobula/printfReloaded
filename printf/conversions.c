@@ -46,21 +46,18 @@ void	conversions_u(t_print *ptr, t_spec *this)
 
 /*
 ** If you'll notice, I've used a union as the storage container for all
-** my va_args data.  WTF is a union?  It's something cool that makes me look
-** SUPER smart.  Don't let that fool you.  I am not that smart, and you can tell
-** by how I'm storing everything in a massive intmax_t/uintmax_t data type because
-** I'm too lazy to actually use appropriately sized containers as that would
-** require way more thinking than I feel like doing.
+** my va_args data.  WTF is a union?
 **
-** Seriously though, think of a union as a really large container that can be used to
-** carry lots of different types of data--but it can only carry one at a time.  So
-** if we store a number in this->data.super_u, we can't also use the string portion of the union 
-** at the same time: the string and the number in our union are sharing the same memory.  WTF is the
-** point of this?  This enables us to reduce memory consumption.  If we used a struct, instead
-** of a union, the computer would allocate independent memory spaces for each member of our
-** struct.  In the context of embedded systems programming--such as a washer or dryer with a tiny
-** bit of memory--we would want to as little memory as possible.  This is where unions come into play.
-** And I really want to use my printf the next time I code output for a washing machine.
+** Think of a union as a really large container that can be used to carry lots
+** of different types of data--but it can only carry one at a time.  So if we store
+** a number in this->data.super_u, we can't also use the string portion of the union 
+** at the same time: the string and the number in our union are sharing the same memory.
+** This enables us to reduce memory consumption.  If we used a struct, instead
+** of a union, the computer would allocate independent memory spaces for each member of
+** our struct.  In the context of embedded systems programming--such as a washing machine
+** with a tiny bit of memory (I'm doing laundry right now)--we would want to as little
+** memory as possible.  This is where unions come into play.  And I really want to use 
+** my printf the next time I code output for a washing machine.
 */
 
 void	conversions(t_print *ptr, t_spec *this)
