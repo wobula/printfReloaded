@@ -45,8 +45,8 @@
 ** Explanation:
 **
 ** 1. Malloc may seem like your friend at first glance: instant memory!  It is not.
-** Malloc is a trap, especially in big functions like printf.  Malloc requires that you keep
-** track of every single byte of data it gives you so that you can free it.
+** Malloc is a trap, especially in big functions like printf.  Malloc requires that 
+** you keep track of every single byte of data it gives you so that you can free it.
 ** Over the course of hundreds of lines of code and several weeks of coding,
 ** many tired programmers forget their own variables--myself included.  This
 ** is how memory leaks start.
