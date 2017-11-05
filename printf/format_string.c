@@ -31,19 +31,13 @@ static void	print_width(t_spec *this)
 static void	print_precision(t_spec *this)
 {
 	int print;
-	int x;
 
 	if (this->precision != -1 && this->precision < this->len)
 		print = this->precision;
 	else
 		print = this->len;
-	x = -1;
-	while (print > 0)
-	{
-		ft_putchar(this->data.str[++x]);
-		print--;
-		*this->ret = *this->ret + 1;
-	}
+	write(1, this->data.str, print);
+	*this->ret = *this->ret + print;
 }
 
 void	format_string(t_print *ptr, t_spec *this)

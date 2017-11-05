@@ -55,7 +55,7 @@ void		format_octal(t_print *ptr, t_spec *this)
 	if (this->left_align)
 	{
 		print_character(this, '0', form.zeroes);
-		ft_putstr(form.print);
+		ft_fputstr(form.print);
 		print_character(this, ' ', form.spaces);
 		*this->ret = *this->ret + form.length;
 	}
@@ -63,7 +63,7 @@ void		format_octal(t_print *ptr, t_spec *this)
 	{
 		print_character(this, ' ', form.spaces);
 		print_character(this, '0', form.zeroes);
-		ft_putstr(form.print);
+		ft_fputstr(form.print);
 		*this->ret = *this->ret + form.length;
 	}
 }

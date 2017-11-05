@@ -52,17 +52,17 @@ void	format_hex(t_print *ptr, t_spec *this)
 		else
 			print_character(this, ' ', form.spaces);
 		if (this->alt_form == true)
-			ft_putstr("0x");
+			ft_fputstr("0x");
 		print_character(this, '0', form.zeroes);
-		ft_putstr(form.print);
+		ft_fputstr(form.print);
 		*this->ret = *this->ret + form.length;
 	}
 	else
 	{
 		if (this->alt_form == true)
-			ft_putstr("0x");
+			ft_fputstr("0x");
 		print_character(this, '0', form.zeroes);
-		ft_putstr(form.print);
+		ft_fputstr(form.print);
 		if (form.spaces > 0)
 			print_character(this, ' ', form.spaces);
 		*this->ret = *this->ret + form.length;

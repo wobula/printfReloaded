@@ -32,6 +32,7 @@ LIBFT = libft/ft_bzero.c \
 	   libft/ft_memdel.c \
 	   libft/ft_putchar.c \
 	   libft/ft_putstr.c \
+	   libft/ft_fputstr.c \
 	   libft/ft_putendl.c \
 	   libft/ft_putnbr.c \
 	   libft/ft_putchar_fd.c \

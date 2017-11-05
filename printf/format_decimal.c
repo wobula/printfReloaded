@@ -77,14 +77,14 @@ void	format_decimal(t_print *ptr, t_spec *this)
 		if (form.sign != 0 && this->prepend_zero == false)
 			ft_putchar(form.sign);
 		print_character(this, '0', form.zeroes);
-		ft_putstr(form.print);
+		ft_fputstr(form.print);
 	}
 	else
 	{
 		if (form.sign != 0)
 			ft_putchar(form.sign);
 		print_character(this, '0', form.zeroes);
-		ft_putstr(form.print);
+		ft_fputstr(form.print);
 		print_character(this, ' ', form.spaces);
 	}
 	*this->ret = *this->ret + form.length;

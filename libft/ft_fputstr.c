@@ -1,25 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   format_pointer                                     :+:      :+:    :+:   */
+/*   ft_fputstr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rschramm <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/11/30 15:58:34 by rschramm          #+#    #+#             */
-/*   Updated: 2017/02/11 12:51:04 by rschramm         ###   ########.fr       */
+/*   Created: 2016/11/28 09:53:40 by rschramm          #+#    #+#             */
+/*   Updated: 2017/02/01 12:02:50 by rschramm         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/libft.h"
 
-void	format_pointer(t_print *ptr, t_spec *this)
+void	ft_fputstr(char *str)
 {
-	char *print;
+	int x;
 
-	this->data.super_u = va_arg(ptr->arg, unsigned long int);
-	print = ft_ptf_itoabase(this->data.super_u, 16, this->alt_form);
-	ft_fputstr("0x");
-	*this->ret = *this->ret + 2;
-	ft_fputstr(print);
-	*this->ret = *this->ret + ft_strlen(print);
+	x = -1;
+	while (str[++x] != '\0')
+		;
+	write(1, str, x);
 }

@@ -64,6 +64,7 @@ int					ft_memcmp(const void *s1, const void *s2, size_t n);
 void				ft_putchar(char c);
 void				ft_putnbr(int nbr);
 void				ft_putstr(char *str);
+void				ft_fputstr(char *str);
 void				ft_putendl(char const *s);
 void				ft_putchar_fd(char c, int fd);
 void				ft_putnbr_fd(int n, int fd);
