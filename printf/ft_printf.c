@@ -39,15 +39,17 @@ static void constructor(t_print *ptr, t_spec *this)
 **
 ** This part of the code marks the begining of the huge printf glacier of
 ** functionality that is hiding just beneath the surface of what is, pretty
-** much, just a glorified putstring function.  For activate_frankenstein, we call
-** our second struct: t_spec.  Again, we are using stack memory because the
-** malloc function has lots of overhead, is slow, invites memory leaks, and 
-** creates way more programmatic complexity than my feeble brain is capable
-** of remembering.  Tracking down memory leaks with valgrind is no fun.  Instead,
-** I've decided to avoid all malloc calls so that I never have to stay awake at
-** night wondering to myself if my printf is leaking all over my precious programs.
+** much, just a glorified putstring function.  
+**
+** For activate_frankenstein, we call our second struct: t_spec.  Again, 
+** we are using stack memory because the malloc function has lots of overhead, 
+** is slow, invites memory leaks, and creates way more programmatic complexity 
+** than my feeble brain is capable of remembering.  Tracking down memory leaks 
+** with valgrind is no fun.  Instead, I've decided to avoid all malloc calls so
+** that I never have to stay awake at night wondering to myself, "oh my god,
+** is my printf leaking?  Did I free all my mallocs?  I just don't know."
 ** 
-** But I digree: activate frankenstein consists of three parts: constructor, gather
+** But I digress: activate frankenstein consists of three parts: constructor, gather
 ** flags, and format_dispatcher.  A simpler way of saying this is 1) we activate and
 ** zero out our struct, 2) gather meta-data, and 3) send off meta-data to the proper
 ** formatting function.
