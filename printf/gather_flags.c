@@ -54,10 +54,9 @@ static int flags(t_spec *this, char *format)
 ** then printf will think the number 42 is using an intmax_t datatype.
 ** Why the hell does this matter?  Because if you want to output
 ** really big numbers like, 9999999999999, a plain old int will not
-** work.  Instead, what will happen is when you make your va_args call, 
-** the container will be too small (such as an int), and your output will
-** look like a bunch of bullshit (aka overflow values).  I like bullshit
-** just as much as the next person, but not in my code, please!
+** work.  If we use an int, what will happen is when we make our va_args call, 
+** the container will be too small (such as an int), and our output will
+** look like a bunch of bullshit (aka overflow values).
 */
 
 static int length(t_spec *this, char *format)
@@ -158,13 +157,13 @@ static int	specifier(t_spec *this, char c)
 ** For my basic version of printf, I'm only gathering information on flags, precision
 ** width, length, and the specifier.  Basically, it's just a while loop
 ** that looks for a bunch of different characters.  For organizational and optimization
-** purposes I've chosen to break up all these character searches into different functions.
-** If we find a relevent character, we make a note in our t_spec struct.  
+** purposes, I've chosen to break up all these character searches into different functions.
+** If we find a relavent character, we make a note in our t_spec struct.  
 ** If we hit a specifier, we break out of our loop and stop collecting meta-data.  
 **
 ** The next and final stop on this gravy train of wonder and joy is the dispatch manager: 
 ** here we go to the proper formatting function and start printing stuff out to the 
-** screen--zomg so amazing!!!!!1111oneoneone
+** screen--zomg so amazing!!11oneone
 */
 
 int			gather_flags(t_spec *this, char *format, int *x)
