@@ -68,7 +68,6 @@ void	format_decimal(t_print *ptr, t_spec *this)
 {
 	t_format form;
 
-
 	conversions(ptr, this);
 	constructor(this, &form);
 	if (this->left_align == false)
