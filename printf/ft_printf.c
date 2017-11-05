@@ -51,8 +51,8 @@ static void constructor(t_print *ptr, t_spec *this)
 ** 
 ** But I digress: activate frankenstein consists of three parts: constructor, gather
 ** flags, and format_dispatcher.  A simpler way of saying this is 1) we activate and
-** zero out our struct, 2) gather meta-data, and 3) send off meta-data to the proper
-** formatting function.
+** zero out our struct (no trash), 2) gather meta-data, and 3) send off meta-data
+** to the proper formatting function.
 */
 
 static void	activate_frankenstein(t_print *ptr, int *xptr)
@@ -92,7 +92,7 @@ static void print_buffer(char *format, int *ret, int start, int x)
 
 /*
 ** The parse level of printf is essentially putstring with a single
-** if statement to activate formatting functionality for a '%'.  I've
+** if statement to activate formatting functionality for any '%' character.  I've
 ** complicated my parse function by also adding a bit of buffering.  This
 ** is done to increase speed.  Write calls are slow, so rather than calling
 ** write for every single character, we build a buffer, call write once,
@@ -101,6 +101,12 @@ static void print_buffer(char *format, int *ret, int start, int x)
 ** once we've reached the null terminator.  Also, remember: we still have
 ** to keep track of how many characters we are printing out, hence the 
 ** continual references to ptr->ret.
+**
+** One other thing you may notice is that there are a lot of ampersands.  This
+** is how we pass variables (stack structs) by reference.  If we passed these structs without
+** the ampersand, the changes to our variables would not reverberate back
+** outside of the calling function.  In other words, our functions would change
+** the struct, but those would not appear back inside the calling function.
 */
 
 static void	parse(t_print *ptr)

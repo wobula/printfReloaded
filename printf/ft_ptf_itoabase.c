@@ -28,12 +28,13 @@
 ** function is that we are passing 'opt' in as a mechanism for controlling 
 ** upper and lowercase printing functionality.  If opt is 0, we use lowercase, 
 ** else we add an offset to the 'o' index value so that we can access the
-** uppercase letters that are at the end of the string.
+** uppercase letters that are at the end of the string.  (Check my header file
+** to see the definition of "NUMBERSET")
 **
 ** If you are looking for a mathematical explanation of itobase, go look somewhere
 ** else.  I've been using this function for months and still don't really
 ** understand how that fucking modulo is grabbing the correct number.
-** I had to memorize.  One day when I grow up, I promise I will learn
+** I had to memorize.  One day, when I grow up, I promise I will learn
 ** and understand math.  Maybe.
 */
 

@@ -21,10 +21,10 @@ static int ft_isflag(char test)
 }
 
 /*
-** ft_isflag and flags are two functions that do the same thing very
-** similar things.  The first identifies if a character is a flag, 
-** while the second makes a record of the flag in our struct and 
-** increments us to the next character in the string.
+** ft_isflag and flags are two functions that do very similar things.
+** The first identifies if a character is a flag, while the second
+** makes a record of the flag in our struct and increments us to the
+** next character in the string.
 */
 
 static int flags(t_spec *this, char *format)
@@ -139,7 +139,7 @@ static int	precision(t_spec *this, char *format)
 /*
 ** I've got specifiers for lots of different letters; don't let this part
 ** intimidate you.  It's just a bunch of letters!  I've scrunched the code
-** together so that I can feel smarter than I really am.  :D
+** together so that I can feel smrt.  :D
 */
 
 static int	specifier(t_spec *this, char c)
@@ -161,9 +161,12 @@ static int	specifier(t_spec *this, char c)
 ** If we find a relavent character, we make a note in our t_spec struct.  
 ** If we hit a specifier, we break out of our loop and stop collecting meta-data.  
 **
-** The next and final stop on this gravy train of wonder and joy is the dispatch manager: 
-** here we go to the proper formatting function and start printing stuff out to the 
-** screen--zomg so amazing!!11oneone
+** One thing you may notice is that the return values for each of these parsing functions
+** is set equal to the dereferenced variable of x.  WTF IS GOING ON?  The purpose of this
+** is so that once we go through the flag portion of our string, we never have to go
+** through it again.  Think of it as a small speed optimization that can have major
+** implications if we are printing out hundreds and thousands of characters with lots
+** of specifiers.
 */
 
 int			gather_flags(t_spec *this, char *format, int *x)
