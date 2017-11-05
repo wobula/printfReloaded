@@ -12,7 +12,7 @@
 
 #include "../includes/libft.h"
 
-static int ft_isflag(char test)
+static int 	ft_isflag(char test)
 {
 	if (test == '#' || test == '-' || test == '+' ||
 	 test == '0' || test == ' ')
@@ -27,7 +27,7 @@ static int ft_isflag(char test)
 ** next character in the string.
 */
 
-static int flags(t_spec *this, char *format)
+static int 	flags(t_spec *this, char *format)
 {
 	int x;
 
@@ -59,7 +59,7 @@ static int flags(t_spec *this, char *format)
 ** look like a bunch of bullshit (aka overflow values).
 */
 
-static int length(t_spec *this, char *format)
+static int 	length(t_spec *this, char *format)
 {
 	int c;
 

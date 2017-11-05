@@ -39,7 +39,7 @@ static void	constructor(t_spec *this, t_format *form)
 		form->spaces = this->width - (form->length + form->zeroes);
 }
 
-void	format_hex(t_print *ptr, t_spec *this)
+void		format_hex(t_print *ptr, t_spec *this)
 {
 	t_format form;
 

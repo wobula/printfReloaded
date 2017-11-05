@@ -12,7 +12,7 @@
 
 #include "../includes/libft.h"
 
-void	format_percent(t_spec *this)
+void		format_percent(t_spec *this)
 {
 	ft_putchar('%');
 	*this->ret = *this->ret + 1;

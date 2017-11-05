@@ -64,7 +64,7 @@ static void print_width(t_spec *this, t_format *form)
 		print_character(this, ' ', form->spaces);
 }
 
-void	format_decimal(t_print *ptr, t_spec *this)
+void		format_decimal(t_print *ptr, t_spec *this)
 {
 	t_format form;
 

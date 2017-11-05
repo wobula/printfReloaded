@@ -40,7 +40,7 @@ static void	print_precision(t_spec *this)
 	*this->ret = *this->ret + print;
 }
 
-void	format_string(t_print *ptr, t_spec *this)
+void		format_string(t_print *ptr, t_spec *this)
 {
 	this->data.str = va_arg(ptr->arg, char*);
 	this->len = ft_strlen(this->data.str);

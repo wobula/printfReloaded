@@ -12,7 +12,7 @@
 
 #include "../includes/libft.h"
 
-void	format_pointer(t_print *ptr, t_spec *this)
+void		format_pointer(t_print *ptr, t_spec *this)
 {
 	char *print;
 
