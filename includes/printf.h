@@ -74,7 +74,7 @@
 ** always make sure you are in control of your code.
 */
 
-//entry level
+//entry level -- return value, format pointer, va_arg list
 typedef struct				s_print
 {
 	int						ret;
