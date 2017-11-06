@@ -18,8 +18,8 @@ void		format_pointer(t_print *ptr, t_spec *this)
 
 	this->data.super_u = va_arg(ptr->arg, unsigned long int);
 	print = ft_ptf_itoabase(this->data.super_u, 16, this->alt_form);
-	ft_fputstr("0x");
+	ft_fputstr_fd("0x", *this->fd);
 	*this->ret = *this->ret + 2;
-	ft_fputstr(print);
+	ft_fputstr_fd(print, *this->fd);
 	*this->ret = *this->ret + ft_strlen(print);
 }

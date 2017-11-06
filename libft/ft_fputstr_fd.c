@@ -1,32 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf.c                                        :+:      :+:    :+:   */
+/*   ft_fputstr_fd.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rschramm <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/11/30 15:58:34 by rschramm          #+#    #+#             */
-/*   Updated: 2017/02/11 12:51:04 by rschramm         ###   ########.fr       */
+/*   Created: 2016/11/28 09:53:40 by rschramm          #+#    #+#             */
+/*   Updated: 2017/02/01 12:02:50 by rschramm         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/libft.h"
 
-/*
-** Our first data structure tracks 3 things: va_arg pointer,
-** format pointer, and return value (printf returns the number 
-** of characters printed).
-*/
-
-int			ft_printf(const char *format, ...)
+void	ft_fputstr_fd(char *str, int fd)
 {
-	t_print all;
+	int x;
 
-	all.ret = 0;
-	all.fd = 1;
-	all.format = (char*)format;
-	va_start(all.arg, format);
-	parse(&all);
-	va_end(all.arg);
-	return (all.ret);
+	x = -1;
+	while (str[++x] != '\0')
+		;
+	write(fd, str, x);
 }

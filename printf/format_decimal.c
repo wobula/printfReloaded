@@ -46,7 +46,7 @@ static void print_character(t_spec *this, char c, int times)
 {
 	while (times > 0)
 	{
-		ft_putchar(c);
+		ft_putchar_fd(c, *this->fd);
 		times--;
 		*this->ret = *this->ret + 1;
 	}
@@ -57,7 +57,7 @@ static void print_width(t_spec *this, t_format *form)
 	if (this->prepend_zero == true)
 	{
 		if (form->sign != 0)
-			ft_putchar(form->sign);
+			ft_putchar_fd(form->sign, *this->fd);
 		print_character(this, '0', form->spaces);
 	}
 	else
@@ -74,16 +74,16 @@ void		format_decimal(t_print *ptr, t_spec *this)
 	{
 		print_width(this, &form);
 		if (form.sign != 0 && this->prepend_zero == false)
-			ft_putchar(form.sign);
+			ft_putchar_fd(form.sign, *this->fd);
 		print_character(this, '0', form.zeroes);
-		ft_fputstr(form.print);
+		ft_fputstr_fd(form.print, *this->fd);
 	}
 	else
 	{
 		if (form.sign != 0)
-			ft_putchar(form.sign);
+			ft_putchar_fd(form.sign, *this->fd);
 		print_character(this, '0', form.zeroes);
-		ft_fputstr(form.print);
+		ft_fputstr_fd(form.print, *this->fd);
 		print_character(this, ' ', form.spaces);
 	}
 	*this->ret = *this->ret + form.length;

@@ -16,7 +16,7 @@ static void	print_character(t_spec *this, char c, int times)
 {
 	while (times > 0)
 	{
-		ft_putchar(c);
+		ft_putchar_fd(c, *this->fd);
 		*this->ret = *this->ret + 1;
 		times--;
 	}
@@ -55,7 +55,7 @@ void		format_octal(t_print *ptr, t_spec *this)
 	if (this->left_align)
 	{
 		print_character(this, '0', form.zeroes);
-		ft_fputstr(form.print);
+		ft_fputstr_fd(form.print, *this->fd);
 		print_character(this, ' ', form.spaces);
 		*this->ret = *this->ret + form.length;
 	}
@@ -63,7 +63,7 @@ void		format_octal(t_print *ptr, t_spec *this)
 	{
 		print_character(this, ' ', form.spaces);
 		print_character(this, '0', form.zeroes);
-		ft_fputstr(form.print);
+		ft_fputstr_fd(form.print, *this->fd);
 		*this->ret = *this->ret + form.length;
 	}
 }

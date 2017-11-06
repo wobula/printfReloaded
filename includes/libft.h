@@ -35,6 +35,7 @@ typedef struct		s_list
 
 //					big functions
 int 				ft_printf(const char *format, ...);
+int 				ft_dprintf(int fd, const char *format, ...);
 int					get_next_line(const int fd, char **line);
 
 //					utility functions
@@ -65,6 +66,7 @@ void				ft_putchar(char c);
 void				ft_putnbr(int nbr);
 void				ft_putstr(char *str);
 void				ft_fputstr(char *str);
+void				ft_fputstr_fd(char *str, int fd);
 void				ft_putendl(char const *s);
 void				ft_putchar_fd(char c, int fd);
 void				ft_putnbr_fd(int n, int fd);

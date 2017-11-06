@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   format_char                                        :+:      :+:    :+:   */
+/*   ft_dprintf.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rschramm <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -12,37 +12,21 @@
 
 #include "../includes/libft.h"
 
-static void	print_width(t_spec *this)
-{
-	int print;
+/*
+** Our first data structure tracks 3 things: va_arg pointer,
+** format pointer, and return value (printf returns the number 
+** of characters printed).
+*/
 
-	print = this->width - this->len;
-	while (print > 0)
-	{
-		ft_putchar_fd(*this->fd, ' ');
-		print--;
-		*this->ret = *this->ret + 1;
-	}
-}
-
-static void	print_char(char output, int *ret, int fd)
+int			ft_dprintf(int fd, const char *format, ...)
 {
-	ft_putchar_fd(fd, output);
-	*ret = *ret + 1;
-}
+	t_print all;
 
-void	format_char(t_print *ptr, t_spec *this)
-{
-	this->data.chr = (char)va_arg(ptr->arg, int);
-	this->len = 1;
-	if (this->left_align == true)
-	{
-		print_char(this->data.chr, this->ret, *this->fd);
-		print_width(this);
-	}
-	else
-	{
-		print_width(this);
-		print_char(this->data.chr, this->ret, *this->fd);
-	}
+	all.ret = 0;
+	all.fd = fd;
+	all.format = (char*)format;
+	va_start(all.arg, format);
+	parse(&all);
+	va_end(all.arg);
+	return (all.ret);
 }

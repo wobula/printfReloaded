@@ -22,7 +22,7 @@ static void	print_width(t_spec *this)
 		print = this->width - this->len;
 	while (print > 0)
 	{
-		ft_putchar(' ');
+		ft_putchar_fd(' ', *this->fd);
 		print--;
 		*this->ret = *this->ret + 1;
 	}
@@ -36,7 +36,7 @@ static void	print_precision(t_spec *this)
 		print = this->precision;
 	else
 		print = this->len;
-	write(1, this->data.str, print);
+	write(*this->fd, this->data.str, print);
 	*this->ret = *this->ret + print;
 }
 

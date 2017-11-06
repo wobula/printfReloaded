@@ -31,5 +31,15 @@ int	main(void)
 	printf("my return: %d\n", x);
 	fflush(stdout);
 	ft_putstr("\n~~~~~~~~~~~~~~\n");
+	ft_putstr("~~~~~~~~~~~~~~\n");
+	ft_putstr("%10s\n");
+	x = dprintf(2, "**%10s\n", y);
+	fflush(stdout);
+	printf("return: %d\n", x);
+	fflush(stdout);
+	x = ft_dprintf(2, "--%10s\n", y);
+	printf("my return: %d\n", x);
+	fflush(stdout);
+	ft_putstr("\n~~~~~~~~~~~~~~\n");
 	return (0);
 }

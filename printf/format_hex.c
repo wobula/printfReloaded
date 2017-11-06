@@ -16,7 +16,7 @@ static void	print_character(t_spec *this, char print, int times)
 {
 	while (times > 0)
 	{
-		ft_putchar(print);
+		ft_putchar_fd(print, *this->fd);
 		*this->ret = *this->ret + 1;
 		times--;
 	}
@@ -52,17 +52,17 @@ void		format_hex(t_print *ptr, t_spec *this)
 		else
 			print_character(this, ' ', form.spaces);
 		if (this->alt_form == true)
-			ft_fputstr("0x");
+			ft_fputstr_fd("0x", *this->fd);
 		print_character(this, '0', form.zeroes);
-		ft_fputstr(form.print);
+		ft_fputstr_fd(form.print, *this->fd);
 		*this->ret = *this->ret + form.length;
 	}
 	else
 	{
 		if (this->alt_form == true)
-			ft_fputstr("0x");
+			ft_fputstr_fd("0x", *this->fd);
 		print_character(this, '0', form.zeroes);
-		ft_fputstr(form.print);
+		ft_fputstr_fd(form.print, *this->fd);
 		if (form.spaces > 0)
 			print_character(this, ' ', form.spaces);
 		*this->ret = *this->ret + form.length;

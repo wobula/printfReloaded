@@ -14,6 +14,6 @@
 
 void		format_percent(t_spec *this)
 {
-	ft_putchar('%');
+	ft_putchar_fd('%', *this->fd);
 	*this->ret = *this->ret + 1;
 }
