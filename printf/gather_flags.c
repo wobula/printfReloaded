@@ -12,6 +12,17 @@
 
 #include "../includes/libft.h"
 
+static int 	colors(t_spec *this)
+{
+	int color;
+
+	color = va_arg(*this->arg, int);
+	ft_fputstr_fd(COLORSTART, *this->fd);
+	ft_putnbr_fd(color, *this->fd);
+	ft_fputstr_fd(COLORFINISH, *this->fd);
+	return (0);
+}
+
 static int 	ft_isflag(char test)
 {
 	if (test == '#' || test == '-' || test == '+' ||
@@ -181,6 +192,8 @@ int			gather_flags(t_spec *this, char *format, int *x)
 			*x += width(this, format + *x);
 		else if (ft_isalpha(format[*x]))
 			*x += length(this, format + *x);
+		else if (format[*x] == '&')
+			*x += colors(this);
 	}
 	return (0);
 }

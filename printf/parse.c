@@ -30,6 +30,7 @@ static void constructor(t_print *ptr, t_spec *this)
 	this->length[2] = '\0';
 	this->type = 0;
 	this->len = 0;
+	this->arg = &ptr->arg;
 	this->fd = &ptr->fd;
 	this->ret = &ptr->ret;
 }
@@ -76,6 +77,7 @@ static void	activate_frankenstein(t_print *ptr, int *xptr)
 		format_octal(ptr, &this);
 	else if (this.type == 'x' || this.type == 'X')
 		format_hex(ptr, &this);
+	ft_putstr(COLORRESET);
 }
 
 /*

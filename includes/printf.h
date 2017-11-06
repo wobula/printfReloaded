@@ -16,6 +16,10 @@
 # include "../includes/libft.h"
 
 # define NUMBERSET "0123456789abcdef0123456789ABCDEF"
+# define COLORRESET "\e[0m"
+# define COLORSTART "\e["
+# define COLORFINISH "m"
+
 
 //entry level -- return value, format pointer, va_arg list
 typedef struct				s_print
@@ -51,6 +55,7 @@ typedef struct				s_spec
 	int						width;
 	int 					*ret;
 	int 					*fd;
+	va_list 				*arg;
 	raw						data;
 }							t_spec;
 

@@ -27,7 +27,7 @@ int	main(void)
 	fflush(stdout);
 	printf("return: %d\n", x);
 	fflush(stdout);
-	x = ft_printf("--%10s\n", y);
+	x = ft_printf("--%&&10s\n", 34, 41, y);
 	printf("my return: %d\n", x);
 	fflush(stdout);
 	ft_putstr("\n~~~~~~~~~~~~~~\n");
