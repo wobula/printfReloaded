@@ -82,6 +82,7 @@ void	format_char(t_print *ptr, t_spec *this);
 void	format_percent(t_spec *this);
 void	format_string(t_print *ptr, t_spec *this);
 void	format_decimal(t_print *ptr, t_spec *this);
+void	format_udecimal(t_print *ptr, t_spec *this);
 void	format_pointer(t_print *ptr, t_spec *this);
 void	format_octal(t_print *ptr, t_spec *this);
 void	format_hex(t_print *ptr, t_spec *this);

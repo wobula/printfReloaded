@@ -82,6 +82,7 @@ PRINTF = printf/ft_printf.c \
 		printf/format_string.c \
 		printf/format_char.c \
 		printf/format_decimal.c \
+		printf/format_udecimal.c \
 		printf/format_percent.c \
 		printf/format_pointer.c \
 		printf/format_octal.c \

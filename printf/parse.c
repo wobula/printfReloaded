@@ -77,6 +77,8 @@ static void	activate_frankenstein(t_print *ptr, int *xptr)
 		format_octal(ptr, &this);
 	else if (this.type == 'x' || this.type == 'X')
 		format_hex(ptr, &this);
+	else if (this.type == 'u')
+		format_udecimal(ptr, &this);
 	ft_putstr(COLORRESET);
 }
 
