@@ -95,13 +95,15 @@ static int 	length(t_spec *this, char *format)
 ** the screen.  So, if we have a width of 10 and our string is 'robin'
 ** printf will output '     robin' to the screen.  Conversely, if we
 ** choose to left align our string, printf will output 'robin     '.
-** This same concept applies to digits.  One other thing: printf always
-** evaluates number/string length first, then precision, and after all
-** this is finished -- then it evaluates width.  Another way of thinking
-** about this is as follows:
+** Precision, on the other hand, describes the *maximum* number of 
+** characters printing out to the screen.  So if our string is 'robin'
+** and we have a precision of 3, then printf will output 'rob'.
+** One other thing: printf always evaluates number/string length first, 
+** then precision, and after all this is finished -- then it evaluates
+** width.  Another way of thinking about this is as follows:
 **
-** if (precision > string_length), 
-**     then string_length += precision - string length
+** if (precision < string_length), 
+**     then string_length = precision
 ** if (width > string_length)
 **     then pad_value = width - string_length
 **

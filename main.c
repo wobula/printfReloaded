@@ -15,29 +15,29 @@
 int	main(void)
 {
 	int x;
-	char *y;
+	int y;
 	int z;
 
 	x = 0;
-	y = "what is a supdog?";
+	y = -42;
 	z = -42;
 	ft_putstr("~~~~~~~~~~~~~~\n");
-	ft_putstr("%10s\n");
-	x = printf("**%10s\n", y);
+	ft_putstr("%10u\n");
+	x = printf("**%10u\n", y);
 	fflush(stdout);
 	printf("return: %d\n", x);
 	fflush(stdout);
-	x = ft_printf("--%&&10s\n", 4, 1, y);
+	x = ft_printf("--%10u\n", y);
 	printf("my return: %d\n", x);
 	fflush(stdout);
 	ft_putstr("\n~~~~~~~~~~~~~~\n");
 	ft_putstr("~~~~~~~~~~~~~~\n");
-	ft_putstr("%10s\n");
-	x = dprintf(2, "**%10s\n", y);
+	ft_putstr("%10u\n");
+	x = dprintf(2, "**%10u\n", y);
 	fflush(stdout);
 	printf("return: %d\n", x);
 	fflush(stdout);
-	x = ft_dprintf(2, "--%&&10s\n", 104, 96, y);
+	x = ft_dprintf(2, "--%10u\n", y);
 	printf("my return: %d\n", x);
 	fflush(stdout);
 	ft_putstr("\n~~~~~~~~~~~~~~\n");
