@@ -47,7 +47,7 @@ char		*ft_ptf_itoabase(uintmax_t val, int base, int opt)
 		return (ft_strcpy(buf, "0\0"));
 	while (val > 0 && i > 0)
 	{
-		buf[i] = set[(val + o) % base];
+		buf[i] = set[(val % base) + o];
 		val = val / base;
 		--i;
 	}
