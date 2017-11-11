@@ -15,7 +15,9 @@
 /*
 ** Our first data structure tracks 3 things: va_arg pointer,
 ** format pointer, and return value (printf returns the number 
-** of characters printed).
+** of characters printed).  Did I say 3 things?  This is dprintf
+** so actually there is one additional thing to keep track of:
+** the file descriptor.  Standard out is 1, standard error is 2. :D
 */
 
 int			ft_dprintf(int fd, const char *format, ...)
