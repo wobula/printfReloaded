@@ -30,7 +30,7 @@ static void	constructor(t_spec *this, t_format *form)
 {
 	form->sign = 0;
 	get_sign(this, form);
-	form->print = ft_ptf_itoabase(this->data.super_u, 10, this->alt_form);
+	form->print = ft_ptf_itoabase(this->data.super_u, 10, 0);
 	form->length = ft_strlen(form->print);
 	form->zeroes = 0;
 	form->spaces = 0;
